@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nguyen Hong Hanh — Machine Learning & Data Science </title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #000000;
+      --surface: #0f0f0f;
+      --surface2: #1a1a1a;
+      --border: rgba(255,255,255,0.1);
+      --pink: #e0407a;
+      --pink-light: #ff6b9d;
+      --text: #ffffff;
+      --muted: #999999;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none; z-index: 1000; opacity: 0.35;
+    }
+
+    .page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem 5rem;
+      position: relative; z-index: 1;
+    }
+
+    /* ================================================================
+       HERO
+    ================================================================ */
+    .hero { margin-bottom: 5rem; }
+
+    /* "MACHINE LEARNING & DATA SCIENCE · VIETNAM - JAPAN" */
+    .hero-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.95rem;          /* ← HERO TAG SIZE */
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--pink-light);
+      margin-bottom: 1.4rem;
+      opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+    }
+
+    /* YOUR NAME */
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);   /* ← NAME SIZE */
+      line-height: 1.08;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
+    }
+    h1 em { color: var(--pink-light); font-style: italic; }
+
+    /* BIO TEXT */
+    .hero-bio {
+      max-width: 100%;
+      font-size: 1.15rem;          /* ← BIO TEXT SIZE */
+      color: #cccccc;
+      line-height: 1.8;
+      margin-bottom: 2.2rem;
+      font-weight: 400;
+      opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
+    }
+    .hero-bio strong { color: #ffffff; font-weight: 600; }
+
+    .hero-ctas {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fadeUp 0.7s 0.52s forwards;
+    }
+
+    /* ================================================================
+       BUTTONS
+    ================================================================ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;          /* ← BUTTON TEXT SIZE */
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: all 0.22s;
+    }
+    .btn-primary {
+      background: var(--pink);
+      color: #ffffff;
+      border: 1px solid var(--pink);
+      box-shadow: 0 0 24px rgba(224,64,122,0.4), 0 0 50px rgba(224,64,122,0.12);
+    }
+    .btn-primary:hover {
+      background: var(--pink-light);
+      border-color: var(--pink-light);
+      box-shadow: 0 0 32px rgba(255,107,157,0.55), 0 0 70px rgba(255,107,157,0.18);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,0.08);
+      color: #ffffff;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.6);
+    }
+
+    /* ================================================================
+       STATS (after portfolio)
+    ================================================================ */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .stats > div {
+      background: var(--surface);
+      padding: 1.8rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .stats > div::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--pink) 0%, transparent 100%);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .stats > div:hover { background: var(--surface2); }
+    .stats > div:hover::before { transform: scaleX(1); }
+
+    /* THE BIG NUMBERS e.g. "5", "3.91" */
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;           /* ← STAT NUMBER SIZE */
+      color: #ffffff;
+      display: block;
+      line-height: 1.1;
+      text-shadow: 0 0 20px rgba(255,107,157,0.7), 0 0 50px rgba(255,107,157,0.25);
+    }
+
+    /* STAT LABELS e.g. "YEARS ABROAD" */
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;          /* ← STAT LABEL SIZE */
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #aaaaaa;
+      display: block;
+      margin-top: 0.25rem;
+    }
+
+    /* ================================================================
+       SHARED
+    ================================================================ */
+    .section-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 2.0rem 0; }
+
+    /* SECTION HEADERS e.g. "TOOLKIT", "JOURNEY", "PORTFOLIO" */
+    .eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 1.0rem;           /* ← SECTION HEADER SIZE */
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink-light);
+      margin-bottom: 2rem;
+      font-weight: 500;
+    }
+
+    /* ================================================================
+       SKILLS
+    ================================================================ */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .skill-cell {
+      padding: 1.6rem;
+      background: var(--surface);
+      transition: background 0.2s;
+    }
+    .skill-cell:hover { background: var(--surface2); }
+
+    /* SKILL CATEGORY LABELS e.g. "LANGUAGES & LIBRARIES" */
+    .skill-cell-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;          /* ← SKILL CATEGORY LABEL SIZE */
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--pink-light);
+      margin-bottom: 0.9rem;
+      font-weight: 500;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+    /* SKILL TAGS e.g. "Python", "SQL" */
+    .tag {
+      padding: 0.3rem 0.7rem;
+      font-size: 0.78rem;          /* ← SKILL TAG SIZE */
+      font-family: 'DM Mono', monospace;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #e8e8e8;
+      border-radius: 2px;
+    }
+
+    /* ================================================================
+       TIMELINE
+    ================================================================ */
+    .timeline { position: relative; padding-left: 1.6rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px;
+      background: linear-gradient(to bottom, var(--pink) 0%, transparent 100%);
+      opacity: 0.35;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+      padding-left: 1.2rem;
+      display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+    }
+    .tl-dot {
+      position: absolute; left: -1.98rem; top: 0.45rem;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--pink);
+      border: 2px solid #000000;
+      box-shadow: 0 0 8px rgba(224,64,122,0.6);
+    }
+
+    /* TIMELINE DATES e.g. "Sep 2026 →" */
+    .tl-date {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;          /* ← TIMELINE DATE SIZE */
+      letter-spacing: 0.08em;
+      color: var(--pink-light);
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 155px;
+    }
+
+    /* TIMELINE TITLES e.g. "ML & AI Engineer Intern" */
+    .tl-title {
+      font-size: 1.05rem;          /* ← TIMELINE TITLE SIZE */
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* TIMELINE PLACES e.g. "— Senren Inc., Tokyo" */
+    .tl-place {
+      color: #aaaaaa;
+      font-size: 0.92rem;          /* ← TIMELINE PLACE SIZE */
+    }
+    .tl-title-wrap { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+
+    /* ================================================================
+       PROJECTS
+    ================================================================ */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .project-card {
+      background: var(--surface);
+      padding: 2rem;
+      display: flex; flex-direction: column;
+      transition: background 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--pink) 0%, transparent 100%);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+    .project-card:hover { background: var(--surface2); }
+    .project-card:hover::before { transform: scaleX(1); }
+
+    /* PROJECT CATEGORY e.g. "01 · Classification" */
+    .project-num {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85rem;          /* ← PROJECT CATEGORY SIZE */
+      letter-spacing: 0.13em;
+      color: var(--pink-light);
+      margin-bottom: 0.9rem;
+    }
+
+    /* PROJECT TITLE */
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;           /* ← PROJECT TITLE SIZE */
+      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    /* PROJECT DESCRIPTION */
+    .project-desc {
+      font-size: 0.9rem;           /* ← PROJECT DESCRIPTION SIZE */
+      color: #aaaaaa;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 1.1rem;
+    }
+    .metrics { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.3rem; }
+
+    /* PROJECT METRIC BADGES */
+    .metric {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;          /* ← PROJECT METRIC BADGE SIZE */
+      padding: 0.25rem 0.6rem;
+      background: rgba(224,64,122,0.12);
+      border: 1px solid rgba(224,64,122,0.35);
+      color: var(--pink-light);
+      border-radius: 2px;
+    }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888888;
+      text-decoration: none;
+      transition: color 0.2s;
+      margin-top: auto;
+    }
+    .project-link:hover { color: var(--pink-light); }
+    .project-link svg { transition: transform 0.2s; }
+    .project-link:hover svg { transform: translate(2px, -2px); }
+
+    .future-card {
+      background: var(--surface);
+      padding: 2rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; min-height: 200px;
+    }
+    .future-icon { font-size: 1.6rem; margin-bottom: 0.6rem; opacity: 0.3; }
+    .future-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #777777; }
+
+    /* ================================================================
+       CONTACT
+    ================================================================ */
+    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.75rem 1.6rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.75rem;          /* ← CONTACT LINK SIZE */
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #dddddd;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: all 0.22s;
+      border-radius: 2px;
+    }
+    .contact-link:hover { color: var(--pink-light); border-color: rgba(224,64,122,0.5); }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    .footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer p { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: #666666; }
+
+    /* ================================================================
+       ANIMATIONS
+    ================================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ================================================================
+       MOBILE
+    ================================================================ */
+    @media (max-width: 640px) {
+      .page { padding: 3.5rem 1.4rem 4rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+      .tl-item { flex-direction: column; gap: 0.2rem; }
+      .tl-date { min-width: unset; }
+      .footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="hero-tag">Machine Learning &amp; Data Science · Vietnam - Japan</p>
+    <h1>Nguyen Hong Hanh</h1>
+    <p class="hero-bio">
+      <strong>Economics graduate from Kyoto University (QS #46) with 1.5 years of experience building predictive models and data-driven products.
+      Accepted to MSc Data Science @ UNSW Sydney (#QS 20) — commence Sept 2026.</strong>
+    </p>
+    <div class="hero-ctas">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="mailto:nhonghanh462@gmail.com" class="btn btn-ghost">Get in Touch</a>
+    </div>
+  </div><!-- end .hero -->
+
+  <!-- TOOLKIT -->
+  <div class="reveal">
+    <p class="eyebrow">Toolkit</p>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <p class="skill-cell-label">Languages &amp; Libraries</p>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">SQL</span>
+          <span class="tag">Pandas</span><span class="tag">NumPy</span>
+          <span class="tag">Scikit-learn</span><span class="tag">XGBoost</span>
+          <span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-label">Machine Learning</p>
+        <div class="tags">
+          <span class="tag">Random Forest</span><span class="tag">Logistic Regression</span>
+          <span class="tag">Time-Series</span><span class="tag">Classification</span>
+          <span class="tag">A/B Testing</span><span class="tag">Statistical Modeling</span>
+          <span class="tag">Unsupervised Learning</span><span class="tag">Clustering</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-label">Infrastructure &amp; Tools</p>
+        <div class="tags">
+          <span class="tag">Git</span><span class="tag">Docker</span>
+          <span class="tag">GCP</span><span class="tag">Streamlit</span>
+          <span class="tag">API Integration</span>
+        </div>
+      </div>
+      <div class="skill-cell">
+        <p class="skill-cell-label">Business &amp; Strategy</p>
+        <div class="tags">
+          <span class="tag">Predictive Analytics</span><span class="tag">Data Visualization</span>
+          <span class="tag">Stakeholder Presentations</span><span class="tag">Operational Research</span>
+          <span class="tag">Leadership</span><span class="tag">Team Player</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- JOURNEY -->
+  <div class="reveal">
+    <p class="eyebrow">Journey</p>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Sep 2026 →</span>
+        <div class="tl-title-wrap">
+          <span class="tl-title">MSc Data Science and Decisions</span>
+          <span class="tl-place">— UNSW Sydney</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Sep 2025 – Jan 2026</span>
+        <div class="tl-title-wrap">
+          <span class="tl-title">ML &amp; AI Engineer Intern</span>
+          <span class="tl-place">— Senren Inc., Tokyo</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">May – Aug 2025</span>
+        <div class="tl-title-wrap">
+          <span class="tl-title">Startup Project Lead</span>
+          <span class="tl-place">— Phoenixi Incubation Program, Kyoto</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Apr 2024 – Feb 2025</span>
+        <div class="tl-title-wrap">
+          <span class="tl-title">Data Science Team Intern</span>
+          <span class="tl-place">— Flora Inc., Kyoto</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Apr 2022 – Mar 2026</span>
+        <div class="tl-title-wrap">
+          <span class="tl-title">Bachelor of Economics</span>
+          <span class="tl-place">— Kyoto University (MEXT Scholar)</span>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <span class="tl-dot"></span>
+        <span class="tl-date">Aug 2018 – Aug 2021</span>
+        <div class="tl-title-wrap">
+          <span class="tl-title">Physics Specialization</span>
+          <span class="tl-place">— HUS High School for Gifted Students, Hanoi</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- PORTFOLIO -->
+  <div class="reveal" id="projects">
+    <p class="eyebrow">Portfolio</p>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <p class="project-num">01 · Classification</p>
+        <p class="project-title">Customer Churn Prediction</p>
+        <p class="project-desc">Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact.</p>
+        <div class="metrics">
+          <span class="metric">ROC-AUC ≈ 0.65</span>
+          <span class="metric">$366,679 est. impact</span>
+        </div>
+        <a href="https://github.com/HannaNguyen12/Churn_Prediction_Model_Random_Forest" target="_blank" class="project-link">
+          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <p class="project-num">02 · Deployed App | Clustering </p>
+        <p class="project-title">Credit Risk Prediction App</p>
+        <p class="project-desc">Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers.</p>
+        <div class="metrics">
+          <span class="metric">ROC-AUC 0.924</span>
+          <span class="metric">Recall 93.01%</span>
+        </div>
+        <a href="https://github.com/HannaNguyen12/Credit_Risk_Model_Streamlit_App" target="_blank" class="project-link">
+          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <p class="project-num">03 · Time-Series</p>
+        <p class="project-title">Gold Price Forecasting</p>
+        <p class="project-desc">XGBoost forecasting model with macroeconomic and technical indicators, outperforming naive random walk benchmarks.</p>
+        <div class="metrics">
+          <span class="metric">90% directional accuracy</span>
+          <span class="metric">+6.7% vs benchmark</span>
+        </div>
+        <a href="https://github.com/HannaNguyen12/Gold_Price_TimeSeries_Forecast_XGBoost" target="_blank" class="project-link">
+          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+
+      <div class="project-card">
+        <p class="project-num">04 · Portfolio Optimization</p>
+        <p class="project-title">Vietnam Bank Stock Portfolio</p>
+        <p class="project-desc">Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction.</p>
+        <div class="metrics">
+          <span class="metric">Sharpe Ratio 1.55</span>
+          <span class="metric">5 bank stocks</span>
+        </div>
+        <a href="https://github.com/HannaNguyen12/Portfolio_Optimization_Vietnamese_Bank_Stock" target="_blank" class="project-link">
+          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+        </a>
+      </div>
+
+      <div class="future-card">
+        <div class="future-icon">＋</div>
+        <p class="future-label">More coming soon</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- STATS -->
+  <div class="reveal">
+    <div class="stats">
+      <div>
+        <span class="stat-num">5</span>
+        <span class="stat-label">Years Abroad</span>
+      </div>
+      <div>
+        <span class="stat-num">3.91</span>
+        <span class="stat-label">GPA · Kyoto University</span>
+      </div>
+      <div>
+        <span class="stat-num">8.5</span>
+        <span class="stat-label">IELTS Score</span>
+      </div>
+      <div>
+        <span class="stat-num">9</span>
+        <span class="stat-label">Projects</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- CONTACT -->
+  <div class="reveal">
+    <p class="eyebrow">Contact</p>
+    <p style="color: #ffffff; font-size: 1rem; margin-bottom: 1.5rem; max-width: 100%;">
+      Open to internships, collaborations, and research opportunities in applied machine learning and business data science.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:nhonghanh462@gmail.com" class="contact-link">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+        nhonghanh462@gmail.com
+      </a>
+      <a href="https://github.com/HannaNguyen12" target="_blank" class="contact-link">
+        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4 1 0 2 .1 2.9.4 2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12 23.5 5.7 18.3.5 12 .5z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>© 2026 Nguyen Hong Hanh</p>
+    <p>Built with GitHub Pages</p>
+  </div>
+
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
