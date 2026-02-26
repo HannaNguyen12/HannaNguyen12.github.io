@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nguyen Hong Hanh — Machine Learning & Data Science </title>
+  <title>Nguyen Hong Hanh — Machine Learning & Data Science</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
@@ -38,6 +38,43 @@
       pointer-events: none; z-index: 1000; opacity: 0.35;
     }
 
+    /* ================================================================
+       LANGUAGE TOGGLE
+    ================================================================ */
+    .lang-toggle {
+      position: fixed;
+      top: 1.5rem;
+      right: 2rem;
+      z-index: 999;
+      display: flex;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 0.4rem 0.9rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: #888888;
+      transition: all 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--pink);
+      color: #ffffff;
+    }
+    .lang-btn:not(.active):hover {
+      background: rgba(255,255,255,0.07);
+      color: #ffffff;
+    }
+
+    /* ================================================================
+       PAGE
+    ================================================================ */
     .page {
       max-width: 860px;
       margin: 0 auto;
@@ -50,11 +87,10 @@
     ================================================================ */
     .hero { margin-bottom: 5rem; }
 
-    /* "MACHINE LEARNING & DATA SCIENCE · VIETNAM - JAPAN" */
     .hero-tag {
       font-family: 'DM Mono', monospace;
       font-size: 1.5rem;
-      font-weight: 600;         /* ← HERO TAG SIZE */
+      font-weight: 600;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--pink-light);
@@ -62,10 +98,9 @@
       opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
     }
 
-    /* YOUR NAME */
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);   /* ← NAME SIZE */
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
       line-height: 1.08;
       font-weight: 700;
       letter-spacing: -0.02em;
@@ -73,12 +108,10 @@
       color: #ffffff;
       opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
     }
-    h1 em { color: var(--pink-light); font-style: italic; }
 
-    /* BIO TEXT */
     .hero-bio {
       max-width: 100%;
-      font-size: 1.15rem;          /* ← BIO TEXT SIZE */
+      font-size: 1.15rem;
       color: #cccccc;
       line-height: 1.8;
       margin-bottom: 2.2rem;
@@ -99,7 +132,7 @@
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.85rem 2rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;          /* ← BUTTON TEXT SIZE */
+      font-size: 0.85rem;
       font-weight: 500;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -129,7 +162,7 @@
     }
 
     /* ================================================================
-       STATS (after portfolio)
+       STATS
     ================================================================ */
     .stats {
       display: grid;
@@ -155,20 +188,17 @@
     .stats > div:hover { background: var(--surface2); }
     .stats > div:hover::before { transform: scaleX(1); }
 
-    /* THE BIG NUMBERS e.g. "5", "3.91" */
     .stat-num {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;           /* ← STAT NUMBER SIZE */
+      font-size: 2.4rem;
       color: #ffffff;
       display: block;
       line-height: 1.1;
       text-shadow: 0 0 20px rgba(255,107,157,0.7), 0 0 50px rgba(255,107,157,0.25);
     }
-
-    /* STAT LABELS e.g. "YEARS ABROAD" */
     .stat-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;          /* ← STAT LABEL SIZE */
+      font-size: 0.72rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #aaaaaa;
@@ -181,10 +211,9 @@
     ================================================================ */
     .section-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 2.0rem 0; }
 
-    /* SECTION HEADERS e.g. "TOOLKIT", "JOURNEY", "PORTFOLIO" */
     .eyebrow {
       font-family: 'DM Mono', monospace;
-      font-size: 1.0rem;           /* ← SECTION HEADER SIZE */
+      font-size: 1.0rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--pink-light);
@@ -208,11 +237,9 @@
       transition: background 0.2s;
     }
     .skill-cell:hover { background: var(--surface2); }
-
-    /* SKILL CATEGORY LABELS e.g. "LANGUAGES & LIBRARIES" */
     .skill-cell-label {
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;          /* ← SKILL CATEGORY LABEL SIZE */
+      font-size: 0.75rem;
       letter-spacing: 0.13em;
       text-transform: uppercase;
       color: var(--pink-light);
@@ -220,11 +247,9 @@
       font-weight: 500;
     }
     .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
-    /* SKILL TAGS e.g. "Python", "SQL" */
     .tag {
       padding: 0.3rem 0.7rem;
-      font-size: 0.78rem;          /* ← SKILL TAG SIZE */
+      font-size: 0.78rem;
       font-family: 'DM Mono', monospace;
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.15);
@@ -255,30 +280,17 @@
       border: 2px solid #000000;
       box-shadow: 0 0 8px rgba(224,64,122,0.6);
     }
-
-    /* TIMELINE DATES e.g. "Sep 2026 →" */
     .tl-date {
       font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;          /* ← TIMELINE DATE SIZE */
+      font-size: 0.85rem;
       letter-spacing: 0.08em;
       color: var(--pink-light);
       white-space: nowrap;
       flex-shrink: 0;
       min-width: 155px;
     }
-
-    /* TIMELINE TITLES e.g. "ML & AI Engineer Intern" */
-    .tl-title {
-      font-size: 1.05rem;          /* ← TIMELINE TITLE SIZE */
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    /* TIMELINE PLACES e.g. "— Senren Inc., Tokyo" */
-    .tl-place {
-      color: #aaaaaa;
-      font-size: 0.92rem;          /* ← TIMELINE PLACE SIZE */
-    }
+    .tl-title { font-size: 1.05rem; color: #ffffff; font-weight: 500; }
+    .tl-place { color: #aaaaaa; font-size: 0.92rem; }
     .tl-title-wrap { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
 
     /* ================================================================
@@ -307,39 +319,31 @@
     }
     .project-card:hover { background: var(--surface2); }
     .project-card:hover::before { transform: scaleX(1); }
-
-    /* PROJECT CATEGORY e.g. "01 · Classification" */
     .project-num {
       font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;          /* ← PROJECT CATEGORY SIZE */
+      font-size: 0.85rem;
       letter-spacing: 0.13em;
       color: var(--pink-light);
       margin-bottom: 0.9rem;
     }
-
-    /* PROJECT TITLE */
     .project-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;           /* ← PROJECT TITLE SIZE */
+      font-size: 1.2rem;
       line-height: 1.3;
       margin-bottom: 0.75rem;
       color: #ffffff;
     }
-
-    /* PROJECT DESCRIPTION */
     .project-desc {
-      font-size: 0.9rem;           /* ← PROJECT DESCRIPTION SIZE */
+      font-size: 0.9rem;
       color: #aaaaaa;
       line-height: 1.65;
       flex: 1;
       margin-bottom: 1.1rem;
     }
     .metrics { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.3rem; }
-
-    /* PROJECT METRIC BADGES */
     .metric {
       font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;          /* ← PROJECT METRIC BADGE SIZE */
+      font-size: 0.68rem;
       padding: 0.25rem 0.6rem;
       background: rgba(224,64,122,0.12);
       border: 1px solid rgba(224,64,122,0.35);
@@ -378,7 +382,7 @@
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.75rem 1.6rem;
       font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;          /* ← CONTACT LINK SIZE */
+      font-size: 0.75rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
@@ -418,37 +422,48 @@
     ================================================================ */
     @media (max-width: 640px) {
       .page { padding: 3.5rem 1.4rem 4rem; }
-      .stats { grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
       .tl-item { flex-direction: column; gap: 0.2rem; }
       .tl-date { min-width: unset; }
       .footer { flex-direction: column; gap: 0.4rem; text-align: center; }
+      .lang-toggle { top: 1rem; right: 1rem; }
     }
   </style>
 </head>
 <body>
 
+<!-- LANGUAGE TOGGLE -->
+<div class="lang-toggle">
+  <button class="lang-btn active" onclick="setLang('en')">EN</button>
+  <button class="lang-btn" onclick="setLang('vi')">VI</button>
+</div>
+
 <div class="page">
 
   <!-- HERO -->
   <div class="hero">
-    <p class="hero-tag"> · Machine Learning · Data Science · </p>
-    <h1>Nguyen Hong Hanh</h1>
+    <p class="hero-tag" data-en="· Machine Learning · Data Science ·" data-vi="· Học Máy · Khoa Học Dữ Liệu ·">· Machine Learning · Data Science ·</p>
+    <h1>Nguyễn Hồng Hạnh</h1>
     <p class="hero-bio">
-      <strong>Economics graduate from Kyoto University (QS #46) with 1.5 years of experience building predictive models and data-driven products.
-      Accepted to MSc Data Science @ UNSW Sydney (#QS 20) — commence Sept 2026.</strong>
+      <strong>
+        <span data-en="Economics graduate from Kyoto University (QS #46) with 1.5 years of experience building predictive models and data-driven products. Accepted to MSc Data Science @ UNSW Sydney (QS #20) — commencing Sept 2026."
+              data-vi="Cử nhân Kinh tế Đại học Kyoto (QS #46) với 1.5 năm kinh nghiệm xây dựng mô hình dự đoán và sản phẩm dựa trên dữ liệu. Trúng tuyển Thạc sĩ Khoa học Dữ liệu tại UNSW Sydney (QS #20) — bắt đầu tháng 9/2026.">
+          Economics graduate from Kyoto University (QS #46) with 1.5 years of experience building predictive models and data-driven products. Accepted to MSc Data Science @ UNSW Sydney (QS #20) — commencing Sept 2026.
+        </span>
+      </strong>
     </p>
     <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary">View Projects</a>
-      <a href="mailto:nhonghanh462@gmail.com" class="btn btn-ghost">Get in Touch</a>
+      <a href="#projects" class="btn btn-primary" data-en="View Projects" data-vi="Xem Dự Án">View Projects</a>
+      <a href="mailto:nhonghanh462@gmail.com" class="btn btn-ghost" data-en="Get in Touch" data-vi="Liên Hệ">Get in Touch</a>
     </div>
-  </div><!-- end .hero -->
+  </div>
 
   <!-- TOOLKIT -->
   <div class="reveal">
-    <p class="eyebrow">Toolkit</p>
+    <p class="eyebrow" data-en="Toolkit" data-vi="Kỹ Năng">Toolkit</p>
     <div class="skills-grid">
       <div class="skill-cell">
-        <p class="skill-cell-label">Languages &amp; Libraries</p>
+        <p class="skill-cell-label" data-en="Languages & Libraries" data-vi="Ngôn Ngữ & Thư Viện">Languages & Libraries</p>
         <div class="tags">
           <span class="tag">Python</span><span class="tag">SQL</span>
           <span class="tag">Pandas</span><span class="tag">NumPy</span>
@@ -458,7 +473,7 @@
         </div>
       </div>
       <div class="skill-cell">
-        <p class="skill-cell-label">Machine Learning</p>
+        <p class="skill-cell-label" data-en="Machine Learning" data-vi="Học Máy">Machine Learning</p>
         <div class="tags">
           <span class="tag">Random Forest</span><span class="tag">Logistic Regression</span>
           <span class="tag">Time-Series</span><span class="tag">Classification</span>
@@ -467,19 +482,18 @@
         </div>
       </div>
       <div class="skill-cell">
-        <p class="skill-cell-label">Infrastructure &amp; Tools</p>
+        <p class="skill-cell-label" data-en="Infrastructure & Other tools" data-vi="Công Cụ & Hạ Tầng">Infrastructure & Tools</p>
         <div class="tags">
           <span class="tag">Git</span><span class="tag">Docker</span>
           <span class="tag">GCP</span><span class="tag">Streamlit</span>
-          <span class="tag">API Integration</span>
+          <span class="tag">API Integration</span><span class="tag">Excel</span>
         </div>
       </div>
       <div class="skill-cell">
-        <p class="skill-cell-label">Business &amp; Strategy</p>
+        <p class="skill-cell-label" data-en="Business & Strategy" data-vi="Kinh Doanh & Chiến Lược">Business & Strategy</p>
         <div class="tags">
           <span class="tag">Predictive Analytics</span><span class="tag">Data Visualization</span>
           <span class="tag">Stakeholder Presentations</span><span class="tag">Operational Research</span>
-          <span class="tag">Leadership</span><span class="tag">Team Player</span>
         </div>
       </div>
     </div>
@@ -489,14 +503,14 @@
 
   <!-- JOURNEY -->
   <div class="reveal">
-    <p class="eyebrow">Journey</p>
+    <p class="eyebrow" data-en="Journey" data-vi="Hành Trình">Journey</p>
     <div class="timeline">
 
       <div class="tl-item">
         <span class="tl-dot"></span>
         <span class="tl-date">Sep 2026 →</span>
         <div class="tl-title-wrap">
-          <span class="tl-title">MSc Data Science and Decisions</span>
+          <span class="tl-title" data-en="MSc Data Science and Decisions" data-vi="Thạc sĩ Khoa học Dữ liệu">MSc Data Science and Decisions</span>
           <span class="tl-place">— UNSW Sydney</span>
         </div>
       </div>
@@ -505,7 +519,7 @@
         <span class="tl-dot"></span>
         <span class="tl-date">Sep 2025 – Jan 2026</span>
         <div class="tl-title-wrap">
-          <span class="tl-title">ML &amp; AI Engineer Intern</span>
+          <span class="tl-title" data-en="ML & AI Engineer Intern" data-vi="Thực tập Kỹ sư ML & AI">ML &amp; AI Engineer Intern</span>
           <span class="tl-place">— Senren Inc., Tokyo</span>
         </div>
       </div>
@@ -514,7 +528,7 @@
         <span class="tl-dot"></span>
         <span class="tl-date">May – Aug 2025</span>
         <div class="tl-title-wrap">
-          <span class="tl-title">Startup Project Lead</span>
+          <span class="tl-title" data-en="Startup Project Lead" data-vi="Trưởng Dự Án Khởi Nghiệp">Startup Project Lead</span>
           <span class="tl-place">— Phoenixi Incubation Program, Kyoto</span>
         </div>
       </div>
@@ -523,7 +537,7 @@
         <span class="tl-dot"></span>
         <span class="tl-date">Apr 2024 – Feb 2025</span>
         <div class="tl-title-wrap">
-          <span class="tl-title">Data Science Team Intern</span>
+          <span class="tl-title" data-en="Data Science Intern" data-vi="Thực tập Data Science">Data Science Team Intern</span>
           <span class="tl-place">— Flora Inc., Kyoto</span>
         </div>
       </div>
@@ -532,8 +546,8 @@
         <span class="tl-dot"></span>
         <span class="tl-date">Apr 2022 – Mar 2026</span>
         <div class="tl-title-wrap">
-          <span class="tl-title">Bachelor of Economics</span>
-          <span class="tl-place">— Kyoto University (MEXT Scholar)</span>
+          <span class="tl-title" data-en="Bachelor of Economics" data-vi="Cử nhân Kinh tế">Bachelor of Economics</span>
+          <span class="tl-place" data-en="— Kyoto University (MEXT Scholar)" data-vi="— Đại học Kyoto (Học bổng MEXT)">— Kyoto University (MEXT Scholar)</span>
         </div>
       </div>
 
@@ -541,8 +555,8 @@
         <span class="tl-dot"></span>
         <span class="tl-date">Aug 2018 – Aug 2021</span>
         <div class="tl-title-wrap">
-          <span class="tl-title">Physics Specialization</span>
-          <span class="tl-place">— HUS High School for Gifted Students, Hanoi</span>
+          <span class="tl-title" data-en="Physics Specialization" data-vi="Chuyên Vật Lý">Physics Specialization</span>
+          <span class="tl-place" data-en="— HUS High School for Gifted Students, Hanoi" data-vi="— THPT Chuyên Khoa học Tự nhiên, Hà Nội">— HUS High School for Gifted Students, Hanoi</span>
         </div>
       </div>
 
@@ -553,13 +567,17 @@
 
   <!-- PORTFOLIO -->
   <div class="reveal" id="projects">
-    <p class="eyebrow">Portfolio</p>
+    <p class="eyebrow" data-en="Portfolio" data-vi="Dự Án">Portfolio</p>
     <div class="projects-grid">
 
       <div class="project-card">
-        <p class="project-num">01 · Classification</p>
-        <p class="project-title">Customer Churn Prediction</p>
-        <p class="project-desc">Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact.</p>
+        <p class="project-num" data-en="01 · Classification" data-vi="01 · Classification">01 · Classification</p>
+        <p class="project-title" data-en="Customer Churn Prediction" data-vi="Dự Đoán Khách Hàng Rời Bỏ">Customer Churn Prediction</p>
+        <p class="project-desc"
+           data-en="Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact."
+           data-vi="Dự đoán khách hàng rời bỏ trên tập dữ liệu Cell2Cell dùng Random Forest kết hợp mô hình quyết định kinh tế để định lượng tác động kinh doanh thực tế.">
+          Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact.
+        </p>
         <div class="metrics">
           <span class="metric">ROC-AUC ≈ 0.65</span>
           <span class="metric">$366,679 est. impact</span>
@@ -570,9 +588,13 @@
       </div>
 
       <div class="project-card">
-        <p class="project-num">02 · Deployed App | Clustering </p>
-        <p class="project-title">Credit Risk Prediction App</p>
-        <p class="project-desc">Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers.</p>
+        <p class="project-num" data-en="02 · Deployed App | Clustering" data-vi="02 · Deployed App | Clustering">02 · Deployed App | Clustering</p>
+        <p class="project-title" data-en="Credit Risk Prediction App" data-vi="Ứng Dụng Dự Đoán Rủi Ro Tín Dụng">Credit Risk Prediction App</p>
+        <p class="project-desc"
+           data-en="Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers."
+           data-vi="Mô hình rủi ro tín dụng Random Forest triển khai thành ứng dụng Streamlit. Học không giám sát phát hiện 3 nhóm khách hàng ngân hàng riêng biệt.">
+          Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers.
+        </p>
         <div class="metrics">
           <span class="metric">ROC-AUC 0.924</span>
           <span class="metric">Recall 93.01%</span>
@@ -583,9 +605,13 @@
       </div>
 
       <div class="project-card">
-        <p class="project-num">03 · Time-Series</p>
-        <p class="project-title">Gold Price Forecasting</p>
-        <p class="project-desc">XGBoost forecasting model with macroeconomic and technical indicators, outperforming naive random walk benchmarks.</p>
+        <p class="project-num" data-en="03 · Time-Series" data-vi="03 · Time-Series">03 · Time-Series</p>
+        <p class="project-title" data-en="Gold Price Forecasting" data-vi="Dự Báo Giá Vàng">Gold Price Forecasting</p>
+        <p class="project-desc"
+           data-en="XGBoost forecasting model with macroeconomic and technical indicators, outperforming naive random walk benchmarks."
+           data-vi="Mô hình dự báo XGBoost với các chỉ số kinh tế vĩ mô và kỹ thuật, vượt trội so với mô hình bước ngẫu nhiên.">
+          XGBoost forecasting model with macroeconomic and technical indicators, outperforming naive random walk benchmarks.
+        </p>
         <div class="metrics">
           <span class="metric">90% directional accuracy</span>
           <span class="metric">+6.7% vs benchmark</span>
@@ -596,9 +622,13 @@
       </div>
 
       <div class="project-card">
-        <p class="project-num">04 · Portfolio Optimization</p>
-        <p class="project-title">Vietnam Bank Stock Portfolio</p>
-        <p class="project-desc">Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction.</p>
+        <p class="project-num" data-en="04 · Portfolio Optimization" data-vi="04 · Portfolio Optimization">04 · Portfolio Optimization</p>
+        <p class="project-title" data-en="Vietnam Bank Stock Portfolio" data-vi="Danh Mục Cổ Phiếu Ngân Hàng Việt Nam">Vietnam Bank Stock Portfolio</p>
+        <p class="project-desc"
+           data-en="Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction."
+           data-vi="Phân tích rủi ro-lợi nhuận và mô hình mùa vụ của 5 cổ phiếu ngân hàng Việt Nam lớn với xây dựng danh mục tối ưu.">
+          Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction.
+        </p>
         <div class="metrics">
           <span class="metric">Sharpe Ratio 1.55</span>
           <span class="metric">5 bank stocks</span>
@@ -609,9 +639,13 @@
       </div>
 
       <div class="project-card">
-        <p class="project-num">05 · Sentiment Analysis</p>
-        <p class="project-title">Sentiment Analysis with FinBERT</p>
-        <p class="project-desc">The project includes both historical backtesting and real-time sentiment analysis pipelines built using FinBERT and news scraping</p>
+        <p class="project-num" data-en="05 · Sentiment Analysis" data-vi="05 · Sentiment Analysis">05 · Sentiment Analysis</p>
+        <p class="project-title" data-en="Sentiment Analysis with FinBERT" data-vi="Phân Tích Cảm Xúc với FinBERT">Sentiment Analysis with FinBERT</p>
+        <p class="project-desc"
+           data-en="Historical backtesting and real-time sentiment analysis pipelines built using FinBERT and news scraping."
+           data-vi="Pipeline kiểm thử lịch sử và phân tích cảm xúc thời gian thực sử dụng FinBERT và thu thập tin tức.">
+          Historical backtesting and real-time sentiment analysis pipelines built using FinBERT and news scraping.
+        </p>
         <div class="metrics">
           <span class="metric">FinBERT</span>
           <span class="metric">Web scraping</span>
@@ -623,7 +657,7 @@
 
       <div class="future-card">
         <div class="future-icon">＋</div>
-        <p class="future-label">More coming soon</p>
+        <p class="future-label" data-en="More coming soon" data-vi="Sắp ra mắt">More coming soon</p>
       </div>
 
     </div>
@@ -636,19 +670,19 @@
     <div class="stats">
       <div>
         <span class="stat-num">5</span>
-        <span class="stat-label">Years Abroad</span>
+        <span class="stat-label" data-en="Years Abroad" data-vi="Năm Ở Nước Ngoài">Years Abroad</span>
       </div>
       <div>
         <span class="stat-num">3.91</span>
-        <span class="stat-label">GPA · Kyoto University</span>
+        <span class="stat-label" data-en="GPA · Kyoto University" data-vi="GPA Đại học">GPA · Kyoto University</span>
       </div>
       <div>
         <span class="stat-num">8.5</span>
-        <span class="stat-label">IELTS Score</span>
+        <span class="stat-label" data-en="IELTS Score" data-vi="Điểm IELTS">IELTS Score</span>
       </div>
       <div>
-        <span class="stat-num">9</span>
-        <span class="stat-label">Projects</span>
+        <span class="stat-num">10</span>
+        <span class="stat-label" data-en="Projects" data-vi="Dự Án">Projects</span>
       </div>
     </div>
   </div>
@@ -657,8 +691,10 @@
 
   <!-- CONTACT -->
   <div class="reveal">
-    <p class="eyebrow">Contact</p>
-    <p style="color: #ffffff; font-size: 1rem; margin-bottom: 1.5rem; max-width: 100%;">
+    <p class="eyebrow" data-en="Contact" data-vi="Liên Hệ">Contact</p>
+    <p style="color: #ffffff; font-size: 1rem; margin-bottom: 1.5rem; max-width: 100%;"
+       data-en="Open to internships, collaborations, and research opportunities in applied machine learning and business data science."
+       data-vi="Sẵn sàng cho các cơ hội thực tập, hợp tác và nghiên cứu trong lĩnh vực học máy ứng dụng và khoa học dữ liệu kinh doanh.">
       Open to internships, collaborations, and research opportunities in applied machine learning and business data science.
     </p>
     <div class="contact-links">
@@ -674,17 +710,41 @@
   </div>
 
   <div class="footer">
-    <p>© 2026 Nguyen Hong Hanh</p>
-    <p>Built with GitHub Pages</p>
+    <p>© 2026 Nguyễn Hồng Hạnh</p>
+    <p data-en="Built with GitHub Pages" data-vi="Xây dựng với GitHub Pages">Built with GitHub Pages</p>
   </div>
 
 </div>
 
 <script>
+  // ── SCROLL REVEAL ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // ── LANGUAGE TOGGLE ──
+  function setLang(lang) {
+    // Update button states
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+    });
+
+    // Swap all text content
+    document.querySelectorAll('[data-en]').forEach(el => {
+      const text = el.getAttribute('data-' + lang);
+      if (!text) return;
+      // For buttons (a tags with both data attrs), swap inner text only
+      if (el.tagName === 'A') {
+        el.textContent = text;
+      } else {
+        el.textContent = text;
+      }
+    });
+
+    // Update html lang attribute
+    document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
+  }
 </script>
 
 </body>
