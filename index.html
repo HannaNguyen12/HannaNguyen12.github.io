@@ -42,219 +42,118 @@
        LANGUAGE TOGGLE
     ================================================================ */
     .lang-toggle {
-      position: fixed;
-      top: 1.5rem;
-      right: 2rem;
-      z-index: 999;
-      display: flex;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 3px;
-      overflow: hidden;
+      position: fixed; top: 1.5rem; right: 2rem; z-index: 999;
+      display: flex; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden;
     }
     .lang-btn {
-      padding: 0.4rem 0.9rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      cursor: pointer;
-      border: none;
-      background: transparent;
-      color: #888888;
-      transition: all 0.2s;
+      padding: 0.4rem 0.9rem; font-family: 'DM Mono', monospace; font-size: 0.7rem;
+      font-weight: 500; letter-spacing: 0.1em; cursor: pointer; border: none;
+      background: transparent; color: #888888; transition: all 0.2s;
     }
-    .lang-btn.active {
-      background: var(--pink);
-      color: #ffffff;
-    }
-    .lang-btn:not(.active):hover {
-      background: rgba(255,255,255,0.07);
-      color: #ffffff;
-    }
+    .lang-btn.active { background: var(--pink); color: #ffffff; }
+    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.07); color: #ffffff; }
 
     /* ================================================================
        PAGE
     ================================================================ */
-    .page {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 5rem 2.5rem 5rem;
-      position: relative; z-index: 1;
-    }
+    .page { max-width: 860px; margin: 0 auto; padding: 5rem 2.5rem 5rem; position: relative; z-index: 1; }
 
     /* ================================================================
        HERO
     ================================================================ */
     .hero { margin-bottom: 5rem; }
-
     .hero-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--pink-light);
-      margin-bottom: 1.4rem;
-      opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
+      font-family: 'DM Mono', monospace; font-size: 1.5rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink-light);
+      margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
     }
-
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      line-height: 1.08;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-      opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
+      font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      line-height: 1.08; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 1.5rem; color: #ffffff; opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
     }
-
     .hero-bio {
-      max-width: 100%;
-      font-size: 1.15rem;
-      color: #cccccc;
-      line-height: 1.8;
-      margin-bottom: 2.2rem;
-      font-weight: 400;
-      opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
+      max-width: 100%; font-size: 1.15rem; color: #cccccc; line-height: 1.8;
+      margin-bottom: 2.2rem; font-weight: 400; opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
     }
     .hero-bio strong { color: #ffffff; font-weight: 600; }
-
-    .hero-ctas {
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      opacity: 0; animation: fadeUp 0.7s 0.52s forwards;
-    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 0.52s forwards; }
 
     /* ================================================================
        BUTTONS
     ================================================================ */
     .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.85rem 2rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border-radius: 2px;
-      transition: all 0.22s;
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
+      font-family: 'DM Mono', monospace; font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      border-radius: 2px; transition: all 0.22s;
     }
     .btn-primary {
-      background: var(--pink);
-      color: #ffffff;
-      border: 1px solid var(--pink);
+      background: var(--pink); color: #ffffff; border: 1px solid var(--pink);
       box-shadow: 0 0 24px rgba(224,64,122,0.4), 0 0 50px rgba(224,64,122,0.12);
     }
     .btn-primary:hover {
-      background: var(--pink-light);
-      border-color: var(--pink-light);
+      background: var(--pink-light); border-color: var(--pink-light);
       box-shadow: 0 0 32px rgba(255,107,157,0.55), 0 0 70px rgba(255,107,157,0.18);
     }
-    .btn-ghost {
-      background: rgba(255,255,255,0.08);
-      color: #ffffff;
-      border: 1px solid rgba(255,255,255,0.3);
-    }
-    .btn-ghost:hover {
-      background: rgba(255,255,255,0.15);
-      border-color: rgba(255,255,255,0.6);
-    }
+    .btn-ghost { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); }
+    .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
 
     /* ================================================================
        STATS
     ================================================================ */
     .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.07);
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
     }
     .stats > div {
-      background: var(--surface);
-      padding: 1.8rem;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.2s;
+      background: var(--surface); padding: 1.8rem; position: relative;
+      overflow: hidden; transition: background 0.2s;
     }
     .stats > div::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--pink) 0%, transparent 100%);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s ease;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
     }
     .stats > div:hover { background: var(--surface2); }
     .stats > div:hover::before { transform: scaleX(1); }
-
     .stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      color: #ffffff;
-      display: block;
-      line-height: 1.1;
+      font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #ffffff;
+      display: block; line-height: 1.1;
       text-shadow: 0 0 20px rgba(255,107,157,0.7), 0 0 50px rgba(255,107,157,0.25);
     }
     .stat-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #aaaaaa;
-      display: block;
-      margin-top: 0.25rem;
+      font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #aaaaaa; display: block; margin-top: 0.25rem;
     }
 
     /* ================================================================
        SHARED
     ================================================================ */
     .section-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 2.0rem 0; }
-
     .eyebrow {
-      font-family: 'DM Mono', monospace;
-      font-size: 1.0rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--pink-light);
-      margin-bottom: 2rem;
-      font-weight: 500;
+      font-family: 'DM Mono', monospace; font-size: 1.0rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--pink-light); margin-bottom: 2rem; font-weight: 500;
     }
 
     /* ================================================================
        SKILLS
     ================================================================ */
     .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.07);
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
     }
-    .skill-cell {
-      padding: 1.6rem;
-      background: var(--surface);
-      transition: background 0.2s;
-    }
+    .skill-cell { padding: 1.6rem; background: var(--surface); transition: background 0.2s; }
     .skill-cell:hover { background: var(--surface2); }
     .skill-cell-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      color: var(--pink-light);
-      margin-bottom: 0.9rem;
-      font-weight: 500;
+      font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.13em;
+      text-transform: uppercase; color: var(--pink-light); margin-bottom: 0.9rem; font-weight: 500;
     }
     .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .tag {
-      padding: 0.3rem 0.7rem;
-      font-size: 0.78rem;
-      font-family: 'DM Mono', monospace;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.15);
-      color: #e8e8e8;
-      border-radius: 2px;
+      padding: 0.3rem 0.7rem; font-size: 0.78rem; font-family: 'DM Mono', monospace;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+      color: #e8e8e8; border-radius: 2px;
     }
 
     /* ================================================================
@@ -262,32 +161,21 @@
     ================================================================ */
     .timeline { position: relative; padding-left: 1.6rem; }
     .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px;
-      background: linear-gradient(to bottom, var(--pink) 0%, transparent 100%);
-      opacity: 0.35;
+      content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px;
+      background: linear-gradient(to bottom, var(--pink) 0%, transparent 100%); opacity: 0.35;
     }
     .tl-item {
-      position: relative;
-      margin-bottom: 1.5rem;
-      padding-left: 1.2rem;
+      position: relative; margin-bottom: 1.5rem; padding-left: 1.2rem;
       display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
     }
     .tl-dot {
-      position: absolute; left: -1.98rem; top: 0.45rem;
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--pink);
-      border: 2px solid #000000;
+      position: absolute; left: -1.98rem; top: 0.45rem; width: 7px; height: 7px;
+      border-radius: 50%; background: var(--pink); border: 2px solid #000000;
       box-shadow: 0 0 8px rgba(224,64,122,0.6);
     }
     .tl-date {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      letter-spacing: 0.08em;
-      color: var(--pink-light);
-      white-space: nowrap;
-      flex-shrink: 0;
-      min-width: 155px;
+      font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.08em;
+      color: var(--pink-light); white-space: nowrap; flex-shrink: 0; min-width: 155px;
     }
     .tl-title { font-size: 1.05rem; color: #ffffff; font-weight: 500; }
     .tl-place { color: #aaaaaa; font-size: 0.92rem; }
@@ -297,99 +185,253 @@
        PROJECTS
     ================================================================ */
     .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.07);
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
     }
     .project-card {
-      background: var(--surface);
-      padding: 2rem;
-      display: flex; flex-direction: column;
-      transition: background 0.2s;
-      position: relative; overflow: hidden;
+      background: var(--surface); padding: 2rem; display: flex; flex-direction: column;
+      transition: background 0.2s; position: relative; overflow: hidden;
     }
     .project-card::before {
-      content: '';
-      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--pink) 0%, transparent 100%);
-      transform: scaleX(0); transform-origin: left;
-      transition: transform 0.3s ease;
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
     }
     .project-card:hover { background: var(--surface2); }
     .project-card:hover::before { transform: scaleX(1); }
     .project-num {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.85rem;
-      letter-spacing: 0.13em;
-      color: var(--pink-light);
-      margin-bottom: 0.9rem;
+      font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.13em;
+      color: var(--pink-light); margin-bottom: 0.9rem;
     }
     .project-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      line-height: 1.3;
-      margin-bottom: 0.75rem;
-      color: #ffffff;
+      font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.3;
+      margin-bottom: 0.75rem; color: #ffffff;
     }
-    .project-desc {
-      font-size: 0.9rem;
-      color: #aaaaaa;
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1.1rem;
-    }
+    .project-desc { font-size: 0.9rem; color: #aaaaaa; line-height: 1.65; flex: 1; margin-bottom: 1.1rem; }
     .metrics { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.3rem; }
     .metric {
-      font-family: 'DM Mono', monospace;
-      font-size: 0.68rem;
-      padding: 0.25rem 0.6rem;
-      background: rgba(224,64,122,0.12);
-      border: 1px solid rgba(224,64,122,0.35);
-      color: var(--pink-light);
-      border-radius: 2px;
+      font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 0.25rem 0.6rem;
+      background: rgba(224,64,122,0.12); border: 1px solid rgba(224,64,122,0.35);
+      color: var(--pink-light); border-radius: 2px;
     }
     .project-link {
-      display: inline-flex; align-items: center; gap: 0.4rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.72rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #888888;
-      text-decoration: none;
-      transition: color 0.2s;
-      margin-top: auto;
+      display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace;
+      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888888;
+      text-decoration: none; transition: color 0.2s; margin-top: auto;
     }
     .project-link:hover { color: var(--pink-light); }
     .project-link svg { transition: transform 0.2s; }
     .project-link:hover svg { transform: translate(2px, -2px); }
-
     .future-card {
-      background: var(--surface);
-      padding: 2rem;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      text-align: center; min-height: 200px;
+      background: var(--surface); padding: 2rem; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; text-align: center; min-height: 200px;
     }
     .future-icon { font-size: 1.6rem; margin-bottom: 0.6rem; opacity: 0.3; }
     .future-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #777777; }
+
+    /* ================================================================
+       COLLAPSIBLE TOGGLE (shared for both sections)
+    ================================================================ */
+    .toggle-header {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; user-select: none;
+      padding-bottom: 0.5rem;
+    }
+    .toggle-header:hover .toggle-arrow { color: #ffffff; }
+    .toggle-arrow {
+      font-family: 'DM Mono', monospace; font-size: 0.75rem; color: #555555;
+      transition: transform 0.3s ease, color 0.2s;
+      display: inline-block;
+    }
+    .toggle-arrow.open { transform: rotate(180deg); }
+    .toggle-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+    .toggle-body.open { max-height: 2000px; opacity: 1; }
+
+    /* ================================================================
+       COURSES — simple list inside toggle
+    ================================================================ */
+    .courses-list {
+      margin-top: 1.2rem;
+      display: flex; flex-direction: column; gap: 1px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
+    }
+    .course-row {
+      background: var(--surface); padding: 1rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      transition: background 0.2s;
+    }
+    .course-row:hover { background: var(--surface2); }
+    .course-status {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 2px;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .status-progress { background: rgba(224,64,122,0.12); border: 1px solid rgba(224,64,122,0.35); color: var(--pink-light); }
+    .status-done { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: #666666; }
+    .course-name { font-size: 0.9rem; color: #dddddd; flex: 1; }
+    .course-source { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: #555555; white-space: nowrap; }
+    .course-notes-link {
+      display: inline-flex; align-items: center; gap: 0.3rem;
+      font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--pink-light); text-decoration: none;
+      border: 1px solid rgba(255,107,157,0.3); padding: 0.18rem 0.55rem;
+      border-radius: 2px; transition: all 0.2s; white-space: nowrap;
+    }
+    .course-notes-link:hover { background: rgba(255,107,157,0.1); }
+
+    /* ================================================================
+       LEARNING LAB — horizontal scroll strip inside toggle
+    ================================================================ */
+    .learning-strip-wrapper {
+      margin-top: 1.2rem;
+      position: relative;
+    }
+    .learning-strip {
+      display: flex; gap: 1px;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding-bottom: 2px; /* prevents clipping */
+    }
+    .learning-strip::-webkit-scrollbar { height: 3px; }
+    .learning-strip::-webkit-scrollbar-track { background: transparent; }
+    .learning-strip::-webkit-scrollbar-thumb { background: rgba(255,107,157,0.3); border-radius: 2px; }
+    .learning-card {
+      background: var(--surface); padding: 1.6rem;
+      min-width: 260px; max-width: 260px;
+      display: flex; flex-direction: column;
+      scroll-snap-align: start;
+      transition: background 0.2s; position: relative; overflow: hidden; flex-shrink: 0;
+    }
+    .learning-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, rgba(255,107,157,0.5) 0%, transparent 100%);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+    }
+    .learning-card:hover { background: var(--surface2); }
+    .learning-card:hover::before { transform: scaleX(1); }
+    .learning-badge {
+      display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.58rem;
+      letter-spacing: 0.12em; text-transform: uppercase; padding: 0.18rem 0.55rem;
+      border: 1px solid rgba(255,107,157,0.25); color: rgba(255,107,157,0.65);
+      border-radius: 2px; margin-bottom: 0.8rem; width: fit-content;
+    }
+    .learning-title {
+      font-family: 'Playfair Display', serif; font-size: 1rem; color: #ffffff;
+      line-height: 1.3; margin-bottom: 0.6rem;
+    }
+    .learning-desc { font-size: 0.82rem; color: #888888; line-height: 1.6; flex: 1; margin-bottom: 0.9rem; }
+    .learning-metrics { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.9rem; }
+    .learning-metric {
+      font-family: 'DM Mono', monospace; font-size: 0.6rem; padding: 0.2rem 0.5rem;
+      background: rgba(224,64,122,0.08); border: 1px solid rgba(224,64,122,0.2);
+      color: rgba(255,107,157,0.7); border-radius: 2px;
+    }
+    .scroll-hint {
+      margin-top: 0.6rem;
+      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em;
+      color: #444444; text-align: right;
+    }
+
+    /* ================================================================
+       COLLAPSIBLE TOGGLE
+    ================================================================ */
+    .toggle-header {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; user-select: none; padding: 0.6rem 0;
+    }
+    .toggle-label {
+      font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: #555555; font-weight: 500; transition: color 0.2s;
+    }
+    .toggle-header:hover .toggle-label { color: #aaaaaa; }
+    .toggle-arrow {
+      font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #444444;
+      transition: transform 0.3s ease, color 0.2s; display: inline-block;
+    }
+    .toggle-header:hover .toggle-arrow { color: #888888; }
+    .toggle-arrow.open { transform: rotate(180deg); }
+    .toggle-body { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
+    .toggle-body.open { max-height: 2000px; opacity: 1; }
+
+    /* ================================================================
+       COURSES LIST
+    ================================================================ */
+    .courses-list {
+      margin-top: 1rem; display: flex; flex-direction: column; gap: 1px;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+    }
+    .course-row {
+      background: var(--surface); padding: 0.85rem 1.3rem;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; transition: background 0.2s;
+    }
+    .course-row:hover { background: var(--surface2); }
+    .course-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--pink); opacity: 0.5; flex-shrink: 0; }
+    .course-name { font-size: 0.88rem; color: #cccccc; flex: 1; }
+    .course-source { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: #444444; white-space: nowrap; }
+    .course-status-pill {
+      font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0;
+    }
+    .pill-progress { background: rgba(224,64,122,0.1); border: 1px solid rgba(224,64,122,0.3); color: var(--pink-light); }
+    .pill-done { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #555555; }
+
+    /* ================================================================
+       LEARNING LAB HORIZONTAL STRIP
+    ================================================================ */
+    .learning-strip {
+      margin-top: 1rem; display: flex; gap: 1px;
+      overflow-x: auto; overflow-y: hidden;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+    }
+    .learning-strip::-webkit-scrollbar { height: 2px; }
+    .learning-strip::-webkit-scrollbar-thumb { background: rgba(255,107,157,0.25); }
+    .learning-card {
+      background: var(--surface); padding: 1.5rem;
+      min-width: 240px; max-width: 240px; flex-shrink: 0;
+      scroll-snap-align: start; display: flex; flex-direction: column;
+      transition: background 0.2s; position: relative; overflow: hidden;
+    }
+    .learning-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, rgba(255,107,157,0.4) 0%, transparent 100%);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
+    }
+    .learning-card:hover { background: var(--surface2); }
+    .learning-card:hover::before { transform: scaleX(1); }
+    .learning-badge {
+      font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,107,157,0.55);
+      border: 1px solid rgba(255,107,157,0.2); padding: 0.15rem 0.5rem;
+      border-radius: 2px; margin-bottom: 0.75rem; width: fit-content;
+    }
+    .learning-title { font-size: 0.92rem; color: #ffffff; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.4; }
+    .learning-desc { font-size: 0.78rem; color: #666666; line-height: 1.6; flex: 1; margin-bottom: 0.8rem; }
+    .learning-metrics { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.8rem; }
+    .learning-metric {
+      font-family: 'DM Mono', monospace; font-size: 0.58rem; padding: 0.15rem 0.45rem;
+      background: rgba(224,64,122,0.07); border: 1px solid rgba(224,64,122,0.18);
+      color: rgba(255,107,157,0.65); border-radius: 2px;
+    }
+    .scroll-hint { margin-top: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: #333333; text-align: right; }
 
     /* ================================================================
        CONTACT
     ================================================================ */
     .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
     .contact-link {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.75rem 1.6rem;
-      font-family: 'DM Mono', monospace;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: #dddddd;
-      border: 1px solid rgba(255,255,255,0.2);
-      transition: all 0.22s;
-      border-radius: 2px;
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.6rem;
+      font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em;
+      text-transform: uppercase; text-decoration: none; color: #dddddd;
+      border: 1px solid rgba(255,255,255,0.2); transition: all 0.22s; border-radius: 2px;
     }
     .contact-link:hover { color: var(--pink-light); border-color: rgba(224,64,122,0.5); }
 
@@ -397,9 +439,7 @@
        FOOTER
     ================================================================ */
     .footer {
-      margin-top: 4rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);
       display: flex; justify-content: space-between; align-items: center;
     }
     .footer p { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: #666666; }
@@ -411,10 +451,7 @@
       from { opacity: 0; transform: translateY(18px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .reveal {
-      opacity: 0; transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ================================================================
@@ -482,7 +519,7 @@
         </div>
       </div>
       <div class="skill-cell">
-        <p class="skill-cell-label" data-en="Infrastructure & Other tools" data-vi="Công Cụ & Hạ Tầng">Infrastructure & Tools</p>
+        <p class="skill-cell-label" data-en="Infrastructure & Other Tools" data-vi="Công Cụ & Hạ Tầng">Infrastructure & Other Tools</p>
         <div class="tags">
           <span class="tag">Git</span><span class="tag">Docker</span>
           <span class="tag">GCP</span><span class="tag">Streamlit</span>
@@ -575,7 +612,7 @@
         <p class="project-title" data-en="Customer Churn Prediction" data-vi="Dự Đoán Khách Hàng Rời Bỏ">Customer Churn Prediction</p>
         <p class="project-desc"
            data-en="Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact."
-           data-vi="Dự đoán khách hàng rời bỏ trên tập dữ liệu Cell2Cell dùng Random Forest kết hợp mô hình quyết định kinh tế để định lượng tác động kinh doanh thực tế.">
+           data-vi="Dự đoán khách hàng rời bỏ trên tập dữ liệu Cell2Cell dùng Random Forest kết hợp mô hình quyết định kinh tế.">
           Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact.
         </p>
         <div class="metrics">
@@ -592,7 +629,7 @@
         <p class="project-title" data-en="Credit Risk Prediction App" data-vi="Ứng Dụng Dự Đoán Rủi Ro Tín Dụng">Credit Risk Prediction App</p>
         <p class="project-desc"
            data-en="Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers."
-           data-vi="Mô hình rủi ro tín dụng Random Forest triển khai thành ứng dụng Streamlit. Học không giám sát phát hiện 3 nhóm khách hàng ngân hàng riêng biệt.">
+           data-vi="Mô hình rủi ro tín dụng Random Forest triển khai thành ứng dụng Streamlit. Phát hiện 3 nhóm khách hàng ngân hàng riêng biệt.">
           Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers.
         </p>
         <div class="metrics">
@@ -626,7 +663,7 @@
         <p class="project-title" data-en="Vietnam Bank Stock Portfolio" data-vi="Danh Mục Cổ Phiếu Ngân Hàng Việt Nam">Vietnam Bank Stock Portfolio</p>
         <p class="project-desc"
            data-en="Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction."
-           data-vi="Phân tích rủi ro-lợi nhuận và mô hình mùa vụ của 5 cổ phiếu ngân hàng Việt Nam lớn với xây dựng danh mục tối ưu.">
+           data-vi="Phân tích rủi ro-lợi nhuận và mô hình mùa vụ của 5 cổ phiếu ngân hàng Việt Nam lớn.">
           Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction.
         </p>
         <div class="metrics">
@@ -657,7 +694,7 @@
 
       <div class="future-card">
         <div class="future-icon">＋</div>
-        <p class="future-label" data-en="More coming soon" data-vi="Sắp ra mắt">More coming soon</p>
+        <p class="future-label" data-en="More coming" data-vi="More coming">More coming soon</p>
       </div>
 
     </div>
@@ -689,12 +726,70 @@
 
   <div class="section-divider"></div>
 
+  <!-- LEARNING PROJECTS (collapsible + horizontal scroll) -->
+  <div class="reveal">
+    <div class="toggle-header" onclick="toggleSection('learning')">
+      <span class="toggle-label" data-en="Learning projects" data-vi="Dự án khác">Learning projects</span>
+      <span class="toggle-arrow" id="arrow-learning">▾</span>
+    </div>
+    <div class="toggle-body" id="body-learning">
+      <div class="learning-strip">
+        <!-- ── ADD / EDIT LEARNING PROJECTS HERE — copy a card to add more ── -->
+        <div class="learning-card">
+          <span class="learning-badge">Deep Learning</span>
+          <p class="learning-title" data-en="Animal Image Classification" data-vi="Animal Image Classification">Animal Image Classification</p>
+          <p class="learning-desc"
+             data-en="Build CNN model to classify cat, dog & wild animals. Explored PyTorch, image preprocessing, data loaders, loss functions & epoch training."
+             data-vi="Build CNN model to classify cat, dog & wild animals. Explored PyTorch, image preprocessing, data loaders, loss functions & epoch training.">
+            Build CNN model to classify cat, dog & wild animals. Explored PyTorch, image preprocessing, data loaders, loss functions & epoch training.
+          </p>
+          <div class="learning-metrics">
+            <span class="learning-metric">Acc 95.95%</span>
+            <span class="learning-metric">Loss 0.024</span>
+            <span class="learning-metric">PyTorch</span>
+          </div>
+          <a href="https://github.com/HannaNguyen12/Image_Classification_Deep_Learning" target="_blank" class="project-link" style="font-size:0.68rem;">
+            GitHub <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          </a>
+        </div>
+        <div class="learning-card" style="align-items:center;justify-content:center;text-align:center;min-height:180px;">
+          <div style="font-size:1.4rem;opacity:0.2;margin-bottom:0.4rem;">＋</div>
+          <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#333333;" data-en="More coming" data-vi="More coming">More soon</p>
+        </div>
+        <!-- ── END LEARNING PROJECTS ── -->
+      </div>
+      <p class="scroll-hint" data-en="scroll →" data-vi="scroll →">scroll →</p>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- COURSES TAKEN (collapsible) -->
+  <div class="reveal">
+    <div class="toggle-header" onclick="toggleSection('courses')">
+      <span class="toggle-label" data-en="Additional courses taken" data-vi="Khóa học đã tham gia ">Courses Taken</span>
+      <span class="toggle-arrow" id="arrow-courses">▾</span>
+    </div>
+    <div class="toggle-body" id="body-courses">
+      <div class="courses-list">
+        <!-- ── ADD / EDIT COURSES HERE — copy a row to add more ── -->
+        <div class="course-row">
+          <span class="course-dot"></span>
+          <span class="course-name" data-en="MIT 15.773 — Hands-on Deep Learning" data-vi="MIT 15.773 — Hands-on Deep Learning">MIT 6.S191 — Introduction to Deep Learning</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+
   <!-- CONTACT -->
   <div class="reveal">
     <p class="eyebrow" data-en="Contact" data-vi="Liên Hệ">Contact</p>
     <p style="color: #ffffff; font-size: 1rem; margin-bottom: 1.5rem; max-width: 100%;"
        data-en="Open to internships, collaborations, and research opportunities in applied machine learning and business data science."
-       data-vi="Sẵn sàng cho các cơ hội thực tập, hợp tác và nghiên cứu trong lĩnh vực học máy ứng dụng và khoa học dữ liệu kinh doanh.">
+       data-vi="Sẵn sàng cho các cơ hội thực tập, hợp tác và nghiên cứu trong lĩnh vực ứng dụng học máy và khoa học dữ liệu vào business.">
       Open to internships, collaborations, and research opportunities in applied machine learning and business data science.
     </p>
     <div class="contact-links">
@@ -717,32 +812,38 @@
 </div>
 
 <script>
+  // ── TOGGLE SECTIONS ──
+  function toggleSection(id) {
+    const body = document.getElementById('body-' + id);
+    const arrow = document.getElementById('arrow-' + id);
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
   // ── SCROLL REVEAL ──
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, { threshold: 0.08 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
+  // ── TOGGLE SECTIONS ──
+  function toggleSection(id) {
+    const body = document.getElementById('body-' + id);
+    const arrow = document.getElementById('arrow-' + id);
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+  }
+
   // ── LANGUAGE TOGGLE ──
   function setLang(lang) {
-    // Update button states
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
     });
-
-    // Swap all text content
     document.querySelectorAll('[data-en]').forEach(el => {
       const text = el.getAttribute('data-' + lang);
       if (!text) return;
-      // For buttons (a tags with both data attrs), swap inner text only
-      if (el.tagName === 'A') {
-        el.textContent = text;
-      } else {
-        el.textContent = text;
-      }
+      el.textContent = text;
     });
-
-    // Update html lang attribute
     document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
   }
 </script>
