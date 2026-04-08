@@ -3,21 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nguyen Hong Hanh — Machine Learning & Data Science</title>
+  <title>Hanh Nguyen · Data Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #000000;
-      --surface: #0f0f0f;
-      --surface2: #1a1a1a;
-      --border: rgba(255,255,255,0.1);
-      --pink: #e0407a;
-      --pink-light: #ff6b9d;
-      --text: #ffffff;
-      --muted: #999999;
+      --bg: #ffffff;
+      --bg2: #f7f7f5;
+      --bg3: #f0f0ec;
+      --border: #e8e8e4;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --hint: #a0a09a;
+      --blue: #2563b0;
+      --blue-bg: #eff4fc;
+      --blue-tag: #dbeafe;
+      --blue-tag-text: #1e40af;
     }
 
     html { scroll-behavior: smooth; }
@@ -26,763 +29,386 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
+      font-size: 15px;
       line-height: 1.7;
-      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
-    body::before {
-      content: '';
-      position: fixed; inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-      pointer-events: none; z-index: 1000; opacity: 0.35;
+    /* ── COVER ── */
+    .cover {
+      width: 100%;
+      height: 220px;
+      background: #3a8bc4;
+      background-image: linear-gradient(135deg, #2563b0 0%, #3a9fd4 60%, #56c0e0 100%);
     }
 
-    /* ================================================================
-       LANGUAGE TOGGLE
-    ================================================================ */
-    .lang-toggle {
-      position: fixed; top: 1.5rem; right: 2rem; z-index: 999;
-      display: flex; border: 1px solid rgba(255,255,255,0.15); border-radius: 3px; overflow: hidden;
-    }
-    .lang-btn {
-      padding: 0.4rem 0.9rem; font-family: 'DM Mono', monospace; font-size: 0.7rem;
-      font-weight: 500; letter-spacing: 0.1em; cursor: pointer; border: none;
-      background: transparent; color: #888888; transition: all 0.2s;
-    }
-    .lang-btn.active { background: var(--pink); color: #ffffff; }
-    .lang-btn:not(.active):hover { background: rgba(255,255,255,0.07); color: #ffffff; }
-
-    /* ================================================================
-       PAGE
-    ================================================================ */
-    .page { max-width: 860px; margin: 0 auto; padding: 5rem 2.5rem 5rem; position: relative; z-index: 1; }
-
-    /* ================================================================
-       HERO
-    ================================================================ */
-    .hero { margin-bottom: 5rem; }
-    .hero-tag {
-      font-family: 'DM Mono', monospace; font-size: 1.5rem; font-weight: 600;
-      letter-spacing: 0.18em; text-transform: uppercase; color: var(--pink-light);
-      margin-bottom: 1.4rem; opacity: 0; animation: fadeUp 0.7s 0.1s forwards;
-    }
-    h1 {
-      font-family: 'Playfair Display', serif; font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-      line-height: 1.08; font-weight: 700; letter-spacing: -0.02em;
-      margin-bottom: 1.5rem; color: #ffffff; opacity: 0; animation: fadeUp 0.7s 0.25s forwards;
-    }
-    .hero-bio {
-      max-width: 100%; font-size: 1.15rem; color: #cccccc; line-height: 1.8;
-      margin-bottom: 2.2rem; font-weight: 400; opacity: 0; animation: fadeUp 0.7s 0.4s forwards;
-    }
-    .hero-bio strong { color: #ffffff; font-weight: 600; }
-    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.7s 0.52s forwards; }
-
-    /* ================================================================
-       BUTTONS
-    ================================================================ */
-    .btn {
-      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.85rem 2rem;
-      font-family: 'DM Mono', monospace; font-size: 0.85rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-      border-radius: 2px; transition: all 0.22s;
-    }
-    .btn-primary {
-      background: var(--pink); color: #ffffff; border: 1px solid var(--pink);
-      box-shadow: 0 0 24px rgba(224,64,122,0.4), 0 0 50px rgba(224,64,122,0.12);
-    }
-    .btn-primary:hover {
-      background: var(--pink-light); border-color: var(--pink-light);
-      box-shadow: 0 0 32px rgba(255,107,157,0.55), 0 0 70px rgba(255,107,157,0.18);
-    }
-    .btn-ghost { background: rgba(255,255,255,0.08); color: #ffffff; border: 1px solid rgba(255,255,255,0.3); }
-    .btn-ghost:hover { background: rgba(255,255,255,0.15); border-color: rgba(255,255,255,0.6); }
-
-    /* ================================================================
-       STATS
-    ================================================================ */
-    .stats {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
-    }
-    .stats > div {
-      background: var(--surface); padding: 1.8rem; position: relative;
-      overflow: hidden; transition: background 0.2s;
-    }
-    .stats > div::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--pink) 0%, transparent 100%);
-      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
-    }
-    .stats > div:hover { background: var(--surface2); }
-    .stats > div:hover::before { transform: scaleX(1); }
-    .stat-num {
-      font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #ffffff;
-      display: block; line-height: 1.1;
-      text-shadow: 0 0 20px rgba(255,107,157,0.7), 0 0 50px rgba(255,107,157,0.25);
-    }
-    .stat-label {
-      font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em;
-      text-transform: uppercase; color: #aaaaaa; display: block; margin-top: 0.25rem;
+    /* ── PAGE ── */
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 3rem 5rem;
     }
 
-    /* ================================================================
-       SHARED
-    ================================================================ */
-    .section-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 2.0rem 0; }
-    .eyebrow {
-      font-family: 'DM Mono', monospace; font-size: 1.0rem; letter-spacing: 0.2em;
-      text-transform: uppercase; color: var(--pink-light); margin-bottom: 2rem; font-weight: 500;
+    /* ── TITLE ── */
+    .page-title {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 2.2rem 0 2.5rem;
+      color: var(--text);
     }
 
-    /* ================================================================
-       SKILLS
-    ================================================================ */
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
-    }
-    .skill-cell { padding: 1.6rem; background: var(--surface); transition: background 0.2s; }
-    .skill-cell:hover { background: var(--surface2); }
-    .skill-cell-label {
-      font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.13em;
-      text-transform: uppercase; color: var(--pink-light); margin-bottom: 0.9rem; font-weight: 500;
-    }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .tag {
-      padding: 0.3rem 0.7rem; font-size: 0.78rem; font-family: 'DM Mono', monospace;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
-      color: #e8e8e8; border-radius: 2px;
+    /* ── SECTION HEADING ── */
+    h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--blue);
+      margin-bottom: 1.2rem;
+      margin-top: 2.8rem;
     }
 
-    /* ================================================================
-       TIMELINE
-    ================================================================ */
-    .timeline { position: relative; padding-left: 1.6rem; }
-    .timeline::before {
-      content: ''; position: absolute; left: 0; top: 6px; bottom: 6px; width: 1px;
-      background: linear-gradient(to bottom, var(--pink) 0%, transparent 100%); opacity: 0.35;
+    /* ── GALLERY GRID ── */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
     }
-    .tl-item {
-      position: relative; margin-bottom: 1.5rem; padding-left: 1.2rem;
-      display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
-    }
-    .tl-dot {
-      position: absolute; left: -1.98rem; top: 0.45rem; width: 7px; height: 7px;
-      border-radius: 50%; background: var(--pink); border: 2px solid #000000;
-      box-shadow: 0 0 8px rgba(224,64,122,0.6);
-    }
-    .tl-date {
-      font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.08em;
-      color: var(--pink-light); white-space: nowrap; flex-shrink: 0; min-width: 155px;
-    }
-    .tl-title { font-size: 1.05rem; color: #ffffff; font-weight: 500; }
-    .tl-place { color: #aaaaaa; font-size: 0.92rem; }
-    .tl-title-wrap { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
 
-    /* ================================================================
-       PROJECTS
-    ================================================================ */
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
-    }
-    .project-card {
-      background: var(--surface); padding: 2rem; display: flex; flex-direction: column;
-      transition: background 0.2s; position: relative; overflow: hidden;
-    }
-    .project-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, var(--pink) 0%, transparent 100%);
-      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
-    }
-    .project-card:hover { background: var(--surface2); }
-    .project-card:hover::before { transform: scaleX(1); }
-    .project-num {
-      font-family: 'DM Mono', monospace; font-size: 0.85rem; letter-spacing: 0.13em;
-      color: var(--pink-light); margin-bottom: 0.9rem;
-    }
-    .project-title {
-      font-family: 'Playfair Display', serif; font-size: 1.2rem; line-height: 1.3;
-      margin-bottom: 0.75rem; color: #ffffff;
-    }
-    .project-desc { font-size: 0.9rem; color: #aaaaaa; line-height: 1.65; flex: 1; margin-bottom: 1.1rem; }
-    .metrics { display: flex; flex-wrap: wrap; gap: 0.45rem; margin-bottom: 1.3rem; }
-    .metric {
-      font-family: 'DM Mono', monospace; font-size: 0.68rem; padding: 0.25rem 0.6rem;
-      background: rgba(224,64,122,0.12); border: 1px solid rgba(224,64,122,0.35);
-      color: var(--pink-light); border-radius: 2px;
-    }
-    .project-link {
-      display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'DM Mono', monospace;
-      font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: #888888;
-      text-decoration: none; transition: color 0.2s; margin-top: auto;
-    }
-    .project-link:hover { color: var(--pink-light); }
-    .project-link svg { transition: transform 0.2s; }
-    .project-link:hover svg { transform: translate(2px, -2px); }
-    .future-card {
-      background: var(--surface); padding: 2rem; display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center; min-height: 200px;
-    }
-    .future-icon { font-size: 1.6rem; margin-bottom: 0.6rem; opacity: 0.3; }
-    .future-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: #777777; }
-
-    /* ================================================================
-       COLLAPSIBLE TOGGLE (shared for both sections)
-    ================================================================ */
-    .toggle-header {
-      display: flex; align-items: center; justify-content: space-between;
-      cursor: pointer; user-select: none;
-      padding-bottom: 0.5rem;
-    }
-    .toggle-header:hover .toggle-arrow { color: #ffffff; }
-    .toggle-arrow {
-      font-family: 'DM Mono', monospace; font-size: 0.75rem; color: #555555;
-      transition: transform 0.3s ease, color 0.2s;
-      display: inline-block;
-    }
-    .toggle-arrow.open { transform: rotate(180deg); }
-    .toggle-body {
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
       overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.4s ease, opacity 0.3s ease;
-      opacity: 0;
+      transition: box-shadow 0.18s, transform 0.18s;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
     }
-    .toggle-body.open { max-height: 2000px; opacity: 1; }
-
-    /* ================================================================
-       COURSES — simple list inside toggle
-    ================================================================ */
-    .courses-list {
-      margin-top: 1.2rem;
-      display: flex; flex-direction: column; gap: 1px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07);
-    }
-    .course-row {
-      background: var(--surface); padding: 1rem 1.4rem;
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
-      transition: background 0.2s;
-    }
-    .course-row:hover { background: var(--surface2); }
-    .course-status {
-      font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em;
-      text-transform: uppercase; padding: 0.18rem 0.55rem; border-radius: 2px;
-      white-space: nowrap; flex-shrink: 0;
-    }
-    .status-progress { background: rgba(224,64,122,0.12); border: 1px solid rgba(224,64,122,0.35); color: var(--pink-light); }
-    .status-done { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); color: #666666; }
-    .course-name { font-size: 0.9rem; color: #dddddd; flex: 1; }
-    .course-source { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: #555555; white-space: nowrap; }
-    .course-notes-link {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--pink-light); text-decoration: none;
-      border: 1px solid rgba(255,107,157,0.3); padding: 0.18rem 0.55rem;
-      border-radius: 2px; transition: all 0.2s; white-space: nowrap;
-    }
-    .course-notes-link:hover { background: rgba(255,107,157,0.1); }
-
-    /* ================================================================
-       LEARNING LAB — horizontal scroll strip inside toggle
-    ================================================================ */
-    .learning-strip-wrapper {
-      margin-top: 1.2rem;
-      position: relative;
-    }
-    .learning-strip {
-      display: flex; gap: 1px;
-      overflow-x: auto; overflow-y: hidden;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.07);
-      padding-bottom: 2px; /* prevents clipping */
-    }
-    .learning-strip::-webkit-scrollbar { height: 3px; }
-    .learning-strip::-webkit-scrollbar-track { background: transparent; }
-    .learning-strip::-webkit-scrollbar-thumb { background: rgba(255,107,157,0.3); border-radius: 2px; }
-    .learning-card {
-      background: var(--surface); padding: 1.6rem;
-      min-width: 260px; max-width: 260px;
-      display: flex; flex-direction: column;
-      scroll-snap-align: start;
-      transition: background 0.2s; position: relative; overflow: hidden; flex-shrink: 0;
-    }
-    .learning-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, rgba(255,107,157,0.5) 0%, transparent 100%);
-      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
-    }
-    .learning-card:hover { background: var(--surface2); }
-    .learning-card:hover::before { transform: scaleX(1); }
-    .learning-badge {
-      display: inline-block; font-family: 'DM Mono', monospace; font-size: 0.58rem;
-      letter-spacing: 0.12em; text-transform: uppercase; padding: 0.18rem 0.55rem;
-      border: 1px solid rgba(255,107,157,0.25); color: rgba(255,107,157,0.65);
-      border-radius: 2px; margin-bottom: 0.8rem; width: fit-content;
-    }
-    .learning-title {
-      font-family: 'Playfair Display', serif; font-size: 1rem; color: #ffffff;
-      line-height: 1.3; margin-bottom: 0.6rem;
-    }
-    .learning-desc { font-size: 0.82rem; color: #888888; line-height: 1.6; flex: 1; margin-bottom: 0.9rem; }
-    .learning-metrics { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 0.9rem; }
-    .learning-metric {
-      font-family: 'DM Mono', monospace; font-size: 0.6rem; padding: 0.2rem 0.5rem;
-      background: rgba(224,64,122,0.08); border: 1px solid rgba(224,64,122,0.2);
-      color: rgba(255,107,157,0.7); border-radius: 2px;
-    }
-    .scroll-hint {
-      margin-top: 0.6rem;
-      font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em;
-      color: #444444; text-align: right;
+    .card:hover {
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+      transform: translateY(-2px);
     }
 
-    /* ================================================================
-       COLLAPSIBLE TOGGLE
-    ================================================================ */
-    .toggle-header {
-      display: flex; align-items: center; justify-content: space-between;
-      cursor: pointer; user-select: none; padding: 0.6rem 0;
+    .card-thumb {
+      width: 100%;
+      height: 150px;
+      background: var(--bg3);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-    .toggle-label {
-      font-family: 'DM Mono', monospace; font-size: 0.78rem; letter-spacing: 0.18em;
-      text-transform: uppercase; color: #555555; font-weight: 500; transition: color 0.2s;
+    .card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
     }
-    .toggle-header:hover .toggle-label { color: #aaaaaa; }
-    .toggle-arrow {
-      font-family: 'DM Mono', monospace; font-size: 0.7rem; color: #444444;
-      transition: transform 0.3s ease, color 0.2s; display: inline-block;
+    .card-thumb-placeholder {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--hint);
+      letter-spacing: 0.06em;
+      text-align: center;
+      padding: 1rem;
     }
-    .toggle-header:hover .toggle-arrow { color: #888888; }
-    .toggle-arrow.open { transform: rotate(180deg); }
-    .toggle-body { overflow: hidden; max-height: 0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
-    .toggle-body.open { max-height: 2000px; opacity: 1; }
 
-    /* ================================================================
-       COURSES LIST
-    ================================================================ */
-    .courses-list {
-      margin-top: 1rem; display: flex; flex-direction: column; gap: 1px;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
-    }
-    .course-row {
-      background: var(--surface); padding: 0.85rem 1.3rem;
-      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; transition: background 0.2s;
-    }
-    .course-row:hover { background: var(--surface2); }
-    .course-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--pink); opacity: 0.5; flex-shrink: 0; }
-    .course-name { font-size: 0.88rem; color: #cccccc; flex: 1; }
-    .course-source { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: #444444; white-space: nowrap; }
-    .course-status-pill {
-      font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.08em;
-      text-transform: uppercase; padding: 0.15rem 0.5rem; border-radius: 2px; white-space: nowrap; flex-shrink: 0;
-    }
-    .pill-progress { background: rgba(224,64,122,0.1); border: 1px solid rgba(224,64,122,0.3); color: var(--pink-light); }
-    .pill-done { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #555555; }
+    .card-body { padding: 0.9rem 1rem 1rem; }
 
-    /* ================================================================
-       LEARNING LAB HORIZONTAL STRIP
-    ================================================================ */
-    .learning-strip {
-      margin-top: 1rem; display: flex; gap: 1px;
-      overflow-x: auto; overflow-y: hidden;
-      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.07);
+    .card-title {
+      font-size: 0.92rem;
+      font-weight: 500;
+      margin-bottom: 0.55rem;
+      line-height: 1.35;
+      color: var(--text);
     }
-    .learning-strip::-webkit-scrollbar { height: 2px; }
-    .learning-strip::-webkit-scrollbar-thumb { background: rgba(255,107,157,0.25); }
-    .learning-card {
-      background: var(--surface); padding: 1.5rem;
-      min-width: 240px; max-width: 240px; flex-shrink: 0;
-      scroll-snap-align: start; display: flex; flex-direction: column;
-      transition: background 0.2s; position: relative; overflow: hidden;
-    }
-    .learning-card::before {
-      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, rgba(255,107,157,0.4) 0%, transparent 100%);
-      transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease;
-    }
-    .learning-card:hover { background: var(--surface2); }
-    .learning-card:hover::before { transform: scaleX(1); }
-    .learning-badge {
-      font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,107,157,0.55);
-      border: 1px solid rgba(255,107,157,0.2); padding: 0.15rem 0.5rem;
-      border-radius: 2px; margin-bottom: 0.75rem; width: fit-content;
-    }
-    .learning-title { font-size: 0.92rem; color: #ffffff; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.4; }
-    .learning-desc { font-size: 0.78rem; color: #666666; line-height: 1.6; flex: 1; margin-bottom: 0.8rem; }
-    .learning-metrics { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-bottom: 0.8rem; }
-    .learning-metric {
-      font-family: 'DM Mono', monospace; font-size: 0.58rem; padding: 0.15rem 0.45rem;
-      background: rgba(224,64,122,0.07); border: 1px solid rgba(224,64,122,0.18);
-      color: rgba(255,107,157,0.65); border-radius: 2px;
-    }
-    .scroll-hint { margin-top: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: #333333; text-align: right; }
 
-    /* ================================================================
-       CONTACT
-    ================================================================ */
-    .contact-links { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .contact-link {
-      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.6rem;
-      font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.1em;
-      text-transform: uppercase; text-decoration: none; color: #dddddd;
-      border: 1px solid rgba(255,255,255,0.2); transition: all 0.22s; border-radius: 2px;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 0.55rem;
     }
-    .contact-link:hover { color: var(--pink-light); border-color: rgba(224,64,122,0.5); }
-
-    /* ================================================================
-       FOOTER
-    ================================================================ */
-    .footer {
-      margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.08);
-      display: flex; justify-content: space-between; align-items: center;
+    .tag {
+      font-size: 0.7rem;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: var(--blue-tag);
+      color: var(--blue-tag-text);
+      font-family: 'DM Mono', monospace;
+      white-space: nowrap;
     }
-    .footer p { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.08em; color: #666666; }
-
-    /* ================================================================
-       ANIMATIONS
-    ================================================================ */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
+    .tag-gray {
+      background: var(--bg3);
+      color: var(--muted);
     }
-    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
 
-    /* ================================================================
-       MOBILE
-    ================================================================ */
-    @media (max-width: 640px) {
-      .page { padding: 3.5rem 1.4rem 4rem; }
-      .stats { grid-template-columns: repeat(2, 1fr); }
-      .tl-item { flex-direction: column; gap: 0.2rem; }
-      .tl-date { min-width: unset; }
-      .footer { flex-direction: column; gap: 0.4rem; text-align: center; }
-      .lang-toggle { top: 1rem; right: 1rem; }
+    .card-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      color: var(--hint);
+      margin-top: 0.4rem;
+      display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* ── RESEARCH CARD (no image) ── */
+    .card-research .card-thumb {
+      height: 120px;
+    }
+
+    /* ── REFERENCE BLOCKS ── */
+    .ref-block {
+      background: var(--bg2);
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      margin-bottom: 12px;
+    }
+    .ref-lead {
+      font-weight: 500;
+      font-size: 0.92rem;
+      color: var(--text);
+      margin-bottom: 0.65rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+    }
+    .ref-lead::before {
+      content: '"';
+      font-family: 'Lora', serif;
+      font-size: 1.5rem;
+      color: var(--blue);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .ref-body {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 0.8rem;
+      padding-left: 1.6rem;
+    }
+    .ref-author {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--hint);
+      padding-left: 1.6rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .contact-list a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .contact-list a:hover { text-decoration: underline; }
+    .contact-icon {
+      font-size: 0.85rem;
+      width: 18px;
+      text-align: center;
+    }
+    .thank-you {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 1rem;
+    }
+
+    /* ── DIVIDER ── */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2.5rem 0;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .page { padding: 0 1.2rem 4rem; }
+      .page-title { font-size: 1.5rem; }
+      .gallery { grid-template-columns: 1fr 1fr; gap: 8px; }
     }
   </style>
 </head>
 <body>
 
-<!-- LANGUAGE TOGGLE -->
-<div class="lang-toggle">
-  <button class="lang-btn active" onclick="setLang('en')">EN</button>
-  <button class="lang-btn" onclick="setLang('vi')">VI</button>
-</div>
+<div class="cover"></div>
 
 <div class="page">
 
-  <!-- HERO -->
-  <div class="hero">
-    <p class="hero-tag" data-en="· Machine Learning · Data Science ·" data-vi="· Học Máy · Khoa Học Dữ Liệu ·">· Machine Learning · Data Science ·</p>
-    <h1>Nguyễn Hồng Hạnh</h1>
-    <p class="hero-bio">
-      <strong>
-       <span data-en="Economics graduate from Kyoto University (QS #46) with 1 year experience working in Japanese IT sector building predictive models and data-driven products."
-      data-vi="Cử nhân Kinh tế Đại học Kyoto (QS #46) với 1 năm kinh nghiệm làm việc trong lĩnh vực IT tại Nhật Bản, xây dựng mô hình dự đoán và sản phẩm ứng dụng dữ liệu.">
-        Economics graduate from Kyoto University (QS #46) with 1 year experience working in Japanese IT sector building predictive models and data-driven products.
-      </span>
-      </strong>
-    </p>
-    <div class="hero-ctas">
-      <a href="#projects" class="btn btn-primary" data-en="View Projects" data-vi="Xem Dự Án">View Projects</a>
-      <a href="mailto:nhonghanh462@gmail.com" class="btn btn-ghost" data-en="Get in Touch" data-vi="Liên Hệ">Get in Touch</a>
-    </div>
-  </div>
+  <h1 class="page-title">Hanh Nguyen &nbsp;·&nbsp; Data Portfolio</h1>
 
-  <!-- TOOLKIT -->
-  <div class="reveal">
-    <p class="eyebrow" data-en="Toolkit" data-vi="Kỹ Năng">Toolkit</p>
-    <div class="skills-grid">
-      <div class="skill-cell">
-        <p class="skill-cell-label" data-en="Languages & Libraries" data-vi="Ngôn Ngữ & Thư Viện">Languages & Libraries</p>
+  <!-- ═══════════════════════════════════════
+       DATA PROJECTS
+  ════════════════════════════════════════ -->
+  <h2>Data Projects</h2>
+  <div class="gallery">
+
+    <a class="card" href="https://github.com/HannaNguyen12/Churn_Prediction_Model_Random_Forest" target="_blank">
+      <div class="card-thumb">
+        <!-- Replace src with your actual screenshot image URL -->
+        <div class="card-thumb-placeholder">Customer Churn<br>ROC curve</div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Customer Churn Prediction</p>
         <div class="tags">
-          <span class="tag">Python</span><span class="tag">SQL</span>
-          <span class="tag">Pandas</span><span class="tag">NumPy</span>
-          <span class="tag">Scikit-learn</span><span class="tag">XGBoost</span>
-          <span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
-          <span class="tag">PyTorch</span><span class="tag">TensorFlow</span>
+          <span class="tag">Random Forest</span>
+          <span class="tag">Economic modeling</span>
+          <span class="tag tag-gray">ROC-AUC: 0.65</span>
+          <span class="tag tag-gray">Cell2Cell</span>
+          <span class="tag tag-gray">$366,679 est. impact</span>
         </div>
+        <span class="card-link">github.com/HannaNguyen12/Churn…Forest</span>
       </div>
-      <div class="skill-cell">
-        <p class="skill-cell-label" data-en="Machine Learning" data-vi="Học Máy">Machine Learning</p>
+    </a>
+
+    <a class="card" href="https://github.com/HannaNguyen12/Credit_Risk_Model_Streamlit_App" target="_blank">
+      <div class="card-thumb">
+        <div class="card-thumb-placeholder">Credit Risk<br>clustering heatmap</div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Credit Risk Model (Deployed App)</p>
         <div class="tags">
-          <span class="tag">Random Forest</span><span class="tag">Logistic Regression</span>
-          <span class="tag">Time-Series</span><span class="tag">Classification</span>
-          <span class="tag">A/B Testing</span><span class="tag">Statistical Modeling</span>
-          <span class="tag">Unsupervised Learning</span><span class="tag">Clustering</span>
+          <span class="tag">Unsupervised Learning</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag tag-gray">Bank</span>
+          <span class="tag tag-gray">Recall 93.01%</span>
+          <span class="tag tag-gray">Streamlit App</span>
         </div>
+        <span class="card-link">github.com/HannaNguyen12/Credit…file</span>
       </div>
-      <div class="skill-cell">
-        <p class="skill-cell-label" data-en="Infrastructure & Other Tools" data-vi="Công Cụ & Hạ Tầng">Infrastructure & Other Tools</p>
+    </a>
+
+    <a class="card" href="https://github.com/HannaNguyen12/Gold_Price_TimeSeries_Forecast_XGBoost" target="_blank">
+      <div class="card-thumb">
+        <div class="card-thumb-placeholder">Gold Price<br>time-series chart</div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Gold Price Forecast</p>
         <div class="tags">
-          <span class="tag">Git</span><span class="tag">Docker</span>
-          <span class="tag">GCP</span><span class="tag">Streamlit</span>
-          <span class="tag">API Integration</span><span class="tag">Excel</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">STL analysis</span>
+          <span class="tag">Time-series</span>
+          <span class="tag tag-gray">Investment</span>
+          <span class="tag tag-gray">Macroeconomic features</span>
         </div>
+        <span class="card-link">github.com/HannaNguyen12/Gold…GBoost</span>
       </div>
-      <div class="skill-cell">
-        <p class="skill-cell-label" data-en="Business & Strategy" data-vi="Kinh Doanh & Chiến Lược">Business & Strategy</p>
+    </a>
+
+    <a class="card" href="https://github.com/HannaNguyen12/Sentiment-Analysis-Stock-Price" target="_blank">
+      <div class="card-thumb">
+        <div class="card-thumb-placeholder">S&P500 sentiment<br>vs price chart</div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Stock Sentiment Analysis</p>
         <div class="tags">
-          <span class="tag">Predictive Analytics</span><span class="tag">Data Visualization</span>
-          <span class="tag">Stakeholder Presentations</span><span class="tag">Operational Research</span>
+          <span class="tag">FinBERT</span>
+          <span class="tag">NLP</span>
+          <span class="tag tag-gray">Investment</span>
+          <span class="tag tag-gray">Webscraping</span>
+          <span class="tag tag-gray">Data aggregation</span>
         </div>
+        <span class="card-link">github.com/HannaNguyen12/Sentiment…Price</span>
       </div>
-    </div>
+    </a>
+
+    <a class="card" href="https://github.com/HannaNguyen12/Portfolio_Optimization_Vietnamese_Bank_Stock" target="_blank">
+      <div class="card-thumb">
+        <div class="card-thumb-placeholder">Stock portfolio<br>optimization chart</div>
+      </div>
+      <div class="card-body">
+        <p class="card-title">Stock Portfolio Optimization</p>
+        <div class="tags">
+          <span class="tag">STL analysis</span>
+          <span class="tag">Portfolio Theory</span>
+          <span class="tag tag-gray">Bank</span>
+          <span class="tag tag-gray">Investment</span>
+          <span class="tag tag-gray">Sharpe Ratio</span>
+        </div>
+        <span class="card-link">github.com/HannaNguyen12/Portfolio…Stock</span>
+      </div>
+    </a>
+
   </div>
 
-  <div class="section-divider"></div>
+  <!-- ═══════════════════════════════════════
+       RESEARCH
+  ════════════════════════════════════════ -->
+  <h2>Research</h2>
+  <div class="gallery">
 
-  <!-- PORTFOLIO -->
-  <div class="reveal" id="projects">
-    <p class="eyebrow" data-en="Portfolio" data-vi="Dự Án">Portfolio</p>
-    <div class="projects-grid">
-
-      <div class="project-card">
-        <p class="project-num" data-en="01 · Classification" data-vi="01 · Classification">01 · Classification</p>
-        <p class="project-title" data-en="Customer Churn Prediction" data-vi="Dự Đoán Khách Hàng Rời Bỏ">Customer Churn Prediction</p>
-        <p class="project-desc"
-           data-en="Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact."
-           data-vi="Dự đoán khách hàng rời bỏ trên tập dữ liệu Cell2Cell dùng Random Forest kết hợp mô hình quyết định kinh tế.">
-          Churn prediction on the Cell2Cell dataset using Random Forest with economic decision modeling to quantify real business impact.
-        </p>
-        <div class="metrics">
-          <span class="metric">ROC-AUC ≈ 0.65</span>
-          <span class="metric">$366,679 est. impact</span>
-        </div>
-        <a href="https://github.com/HannaNguyen12/Churn_Prediction_Model_Random_Forest" target="_blank" class="project-link">
-          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
+    <a class="card card-research" href="#" target="_blank">
+      <div class="card-thumb">
+        <div class="card-thumb-placeholder">Sankey diagram<br>Vietnam trade flows</div>
       </div>
-
-      <div class="project-card">
-        <p class="project-num" data-en="02 · Deployed App | Clustering" data-vi="02 · Deployed App | Clustering">02 · Deployed App | Clustering</p>
-        <p class="project-title" data-en="Credit Risk Prediction App" data-vi="Ứng Dụng Dự Đoán Rủi Ro Tín Dụng">Credit Risk Prediction App</p>
-        <p class="project-desc"
-           data-en="Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers."
-           data-vi="Mô hình rủi ro tín dụng Random Forest triển khai thành ứng dụng Streamlit. Phát hiện 3 nhóm khách hàng ngân hàng riêng biệt.">
-          Random Forest credit risk model deployed as a Streamlit app. Unsupervised learning model revealed 3 distinct groups of banking customers.
-        </p>
-        <div class="metrics">
-          <span class="metric">ROC-AUC 0.924</span>
-          <span class="metric">Recall 93.01%</span>
-        </div>
-        <a href="https://github.com/HannaNguyen12/Credit_Risk_Model_Streamlit_App" target="_blank" class="project-link">
-          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
+      <div class="card-body">
+        <p class="card-title">30.03.2026 &nbsp;Breaking down Vietnam's trade reality</p>
       </div>
+    </a>
 
-      <div class="project-card">
-        <p class="project-num" data-en="03 · Time-Series" data-vi="03 · Time-Series">03 · Time-Series</p>
-        <p class="project-title" data-en="Gold Price Forecasting" data-vi="Dự Báo Giá Vàng">Gold Price Forecasting</p>
-        <p class="project-desc"
-           data-en="XGBoost forecasting model with macroeconomic and technical indicators, outperforming naive random walk benchmarks."
-           data-vi="Mô hình dự báo XGBoost với các chỉ số kinh tế vĩ mô và kỹ thuật, vượt trội so với mô hình bước ngẫu nhiên.">
-          XGBoost forecasting model with macroeconomic and technical indicators, outperforming naive random walk benchmarks.
-        </p>
-        <div class="metrics">
-          <span class="metric">90% directional accuracy</span>
-          <span class="metric">+6.7% vs benchmark</span>
-        </div>
-        <a href="https://github.com/HannaNguyen12/Gold_Price_TimeSeries_Forecast_XGBoost" target="_blank" class="project-link">
-          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
+    <!-- Add more research cards here by duplicating the block above -->
 
-      <div class="project-card">
-        <p class="project-num" data-en="04 · Portfolio Optimization" data-vi="04 · Portfolio Optimization">04 · Portfolio Optimization</p>
-        <p class="project-title" data-en="Vietnam Bank Stock Portfolio" data-vi="Danh Mục Cổ Phiếu Ngân Hàng Việt Nam">Vietnam Bank Stock Portfolio</p>
-        <p class="project-desc"
-           data-en="Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction."
-           data-vi="Phân tích rủi ro-lợi nhuận và mô hình mùa vụ của 5 cổ phiếu ngân hàng Việt Nam lớn.">
-          Risk-return analysis and seasonal patterns of 5 major Vietnamese banking stocks with optimized portfolio construction.
-        </p>
-        <div class="metrics">
-          <span class="metric">Sharpe Ratio 1.55</span>
-          <span class="metric">5 bank stocks</span>
-        </div>
-        <a href="https://github.com/HannaNguyen12/Portfolio_Optimization_Vietnamese_Bank_Stock" target="_blank" class="project-link">
-          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-
-      <div class="project-card">
-        <p class="project-num" data-en="05 · Sentiment Analysis" data-vi="05 · Sentiment Analysis">05 · Sentiment Analysis</p>
-        <p class="project-title" data-en="Sentiment Analysis with FinBERT" data-vi="Phân Tích Cảm Xúc với FinBERT">Sentiment Analysis with FinBERT</p>
-        <p class="project-desc"
-           data-en="Historical backtesting and real-time sentiment analysis pipelines built using FinBERT and news scraping."
-           data-vi="Pipeline kiểm thử lịch sử và phân tích cảm xúc thời gian thực sử dụng FinBERT và thu thập tin tức.">
-          Historical backtesting and real-time sentiment analysis pipelines built using FinBERT and news scraping.
-        </p>
-        <div class="metrics">
-          <span class="metric">FinBERT</span>
-          <span class="metric">Web scraping</span>
-        </div>
-        <a href="https://github.com/HannaNguyen12/Sentiment-Analysis-Stock-Price" target="_blank" class="project-link">
-          GitHub <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-        </a>
-      </div>
-
-      <div class="future-card">
-        <div class="future-icon">＋</div>
-        <p class="future-label" data-en="More coming" data-vi="More coming">More coming soon</p>
-      </div>
-
-    </div>
   </div>
 
-  <div class="section-divider"></div>
+  <hr>
 
-  <!-- STATS -->
-  <div class="reveal">
-    <div class="stats">
-      <div>
-        <span class="stat-num">5</span>
-        <span class="stat-label" data-en="Years Abroad" data-vi="Năm Ở Nước Ngoài">Years Abroad</span>
-      </div>
-      <div>
-        <span class="stat-num">3.91</span>
-        <span class="stat-label" data-en="GPA · Kyoto University" data-vi="GPA Đại học">GPA · Kyoto University</span>
-      </div>
-      <div>
-        <span class="stat-num">8.5</span>
-        <span class="stat-label" data-en="IELTS Score" data-vi="Điểm IELTS">IELTS Score</span>
-      </div>
-      <div>
-        <span class="stat-num">10</span>
-        <span class="stat-label" data-en="Projects" data-vi="Dự Án">Projects</span>
-      </div>
-    </div>
+  <!-- ═══════════════════════════════════════
+       REFERENCES
+  ════════════════════════════════════════ -->
+  <h2>References</h2>
+
+  <div class="ref-block">
+    <p class="ref-lead">From the outset, Hanna distinguished herself through her exceptional communication skills.</p>
+    <p class="ref-body">Whether she was engaging in team-based problem-solving, participating in peer-review sessions, or presenting her own work, she communicated with a level of clarity and maturity well beyond her years. She is disciplined, thoughtful, and deeply motivated by a desire to contribute. She is the kind of person who elevates the people around her — someone who listens, learns, and leads with integrity.</p>
+    <p class="ref-author">— Yutaka Iijima, COO and Executive Director at Phoenixi Co Ltd</p>
   </div>
 
-  <div class="section-divider"></div>
-
-  <!-- LEARNING PROJECTS (collapsible + horizontal scroll) -->
-  <div class="reveal">
-    <div class="toggle-header" onclick="toggleSection('learning')">
-      <span class="toggle-label" data-en="Learning projects" data-vi="Dự án khác">Learning projects</span>
-      <span class="toggle-arrow" id="arrow-learning">▾</span>
-    </div>
-    <div class="toggle-body" id="body-learning">
-      <div class="learning-strip">
-        <!-- ── ADD / EDIT LEARNING PROJECTS HERE — copy a card to add more ── -->
-        <div class="learning-card">
-          <span class="learning-badge">Deep Learning</span>
-          <p class="learning-title" data-en="Animal Image Classification" data-vi="Animal Image Classification">Animal Image Classification</p>
-          <p class="learning-desc"
-             data-en="Build CNN model to classify cat, dog & wild animals. Explored PyTorch, image preprocessing, data loaders, loss functions & epoch training."
-             data-vi="Build CNN model to classify cat, dog & wild animals. Explored PyTorch, image preprocessing, data loaders, loss functions & epoch training.">
-            Build CNN model to classify cat, dog & wild animals. Explored PyTorch, image preprocessing, data loaders, loss functions & epoch training.
-          </p>
-          <div class="learning-metrics">
-            <span class="learning-metric">Acc 95.95%</span>
-            <span class="learning-metric">Loss 0.024</span>
-            <span class="learning-metric">PyTorch</span>
-          </div>
-          <a href="https://github.com/HannaNguyen12/Image_Classification_Deep_Learning" target="_blank" class="project-link" style="font-size:0.68rem;">
-            GitHub <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </a>
-        </div>
-        <div class="learning-card" style="align-items:center;justify-content:center;text-align:center;min-height:180px;">
-          <div style="font-size:1.4rem;opacity:0.2;margin-bottom:0.4rem;">＋</div>
-          <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:#333333;" data-en="More coming" data-vi="More coming">More soon</p>
-        </div>
-        <!-- ── END LEARNING PROJECTS ── -->
-      </div>
-      <p class="scroll-hint" data-en="scroll →" data-vi="scroll →">scroll →</p>
-    </div>
+  <div class="ref-block">
+    <p class="ref-lead">She is just someone who can learn to do anything.</p>
+    <p class="ref-body">She is curious and learns extremely fast. When I assigned unfamiliar tasks to her, she knew how to structure every task systematically and find the fastest way to approach it. We are a startup company, so the fact that she always saw what she could contribute more helped us a lot. Under my supervision, she learned to do everything from analytics, to modeling, and even system automation, which was very impressive.</p>
+    <p class="ref-author">— Ivan Seleznov, PhD, Co-founder and CTO at Flora</p>
   </div>
 
-  <div class="section-divider"></div>
+  <hr>
 
-  <!-- COURSES TAKEN (collapsible) -->
-  <div class="reveal">
-    <div class="toggle-header" onclick="toggleSection('courses')">
-      <span class="toggle-label" data-en="Additional courses taken" data-vi="Khóa học đã tham gia ">Courses Taken</span>
-      <span class="toggle-arrow" id="arrow-courses">▾</span>
-    </div>
-    <div class="toggle-body" id="body-courses">
-      <div class="courses-list">
-        <!-- ── ADD / EDIT COURSES HERE — copy a row to add more ── -->
-        <div class="course-row">
-          <span class="course-dot"></span>
-          <span class="course-name" data-en="MIT 15.773 — Hands-on Deep Learning" data-vi="MIT 15.773 — Hands-on Deep Learning">MIT 6.S191 — Introduction to Deep Learning</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section-divider"></div>
-
-
-  <!-- CONTACT -->
-  <div class="reveal">
-    <p class="eyebrow" data-en="Contact" data-vi="Liên Hệ">Contact</p>
-    <p style="color: #ffffff; font-size: 1rem; margin-bottom: 1.5rem; max-width: 100%;"
-       data-en="Open to internships, collaborations, and research opportunities in applied machine learning and business data science."
-       data-vi="Sẵn sàng cho các cơ hội thực tập, hợp tác và nghiên cứu trong lĩnh vực ứng dụng học máy và khoa học dữ liệu vào business.">
-      Open to internships, collaborations, and research opportunities in applied machine learning and business data science.
-    </p>
-    <div class="contact-links">
-      <a href="mailto:nhonghanh462@gmail.com" class="contact-link">
-        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
-        nhonghanh462@gmail.com
-      </a>
-      <a href="https://github.com/HannaNguyen12" target="_blank" class="contact-link">
-        <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.4-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.7 1.3 3.4 1 .1-.7.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2.9-.3 1.9-.4 2.9-.4 1 0 2 .1 2.9.4 2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6C20.2 21.4 23.5 17.1 23.5 12 23.5 5.7 18.3.5 12 .5z"/></svg>
-        GitHub
-      </a>
-    </div>
-  </div>
-
-  <div class="footer">
-    <p>© 2026 Nguyễn Hồng Hạnh</p>
-    <p data-en="Built with GitHub Pages" data-vi="Xây dựng với GitHub Pages">Built with GitHub Pages</p>
-  </div>
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <h2>Contact</h2>
+  <ul class="contact-list">
+    <li>
+      <span class="contact-icon">✉</span>
+      <a href="mailto:nhonghanh462@gmail.com">nhonghanh462@gmail.com</a>
+    </li>
+    <li>
+      <span class="contact-icon">☎</span>
+      0833294081
+    </li>
+    <li>
+      <span class="contact-icon">⌥</span>
+      <a href="https://github.com/HannaNguyen12" target="_blank">github.com/HannaNguyen12</a>
+    </li>
+  </ul>
+  <p class="thank-you">Thank you.</p>
 
 </div>
-
-<script>
-  // ── TOGGLE SECTIONS ──
-  function toggleSection(id) {
-    const body = document.getElementById('body-' + id);
-    const arrow = document.getElementById('arrow-' + id);
-    body.classList.toggle('open');
-    arrow.classList.toggle('open');
-  }
-
-  // ── SCROLL REVEAL ──
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // ── TOGGLE SECTIONS ──
-  function toggleSection(id) {
-    const body = document.getElementById('body-' + id);
-    const arrow = document.getElementById('arrow-' + id);
-    body.classList.toggle('open');
-    arrow.classList.toggle('open');
-  }
-
-  // ── LANGUAGE TOGGLE ──
-  function setLang(lang) {
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
-    });
-    document.querySelectorAll('[data-en]').forEach(el => {
-      const text = el.getAttribute('data-' + lang);
-      if (!text) return;
-      el.textContent = text;
-    });
-    document.documentElement.lang = lang === 'vi' ? 'vi' : 'en';
-  }
-</script>
 
 </body>
 </html>
